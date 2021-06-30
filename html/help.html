@@ -5,13 +5,43 @@
   <title>Help</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <style>
+    body { padding-top: 110px; }
+  </style>
 </head>
 <body>
+
+<!--Navigation bar-->
+<div id="navStandard">
+
+</div>
+
+<script>
+  $(function(){
+    $("#navStandard").load("navBar.html");
+  });
+</script>
+<!--end of Navigation bar-->
+
   <h1>FAQ</h1>
   <h2>Do i need to share my planet?</h2>
   <h2>Is genocide legal in space?</h2>
   <h2>Are the Geneva Conventions applicable in space?</h2>
   <h2>What is the return policy?</h2>
   <h2>What taxes do I need to pay?</h2>
+
+<!--Footer bar-->
+<div id="Footer">
+
+</div>
+
+<script>
+  $(function(){
+    $("#Footer").load("Footer.html");
+  });
+</script>
+<!--end of Footer bar-->
+
 </body>
 </html>
