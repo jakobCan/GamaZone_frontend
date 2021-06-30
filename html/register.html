@@ -8,39 +8,53 @@
 </head>
 <body>
 
-  <form action="/" method="get">
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+<div class="container">
+  <form class="mt-4">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputFirstName">First Name</label>
+        <input type="text" class="form-control" id="inputFirstName">
       </div>
-      <div>
-        <label for="anrede">Anrede:</label>
-        <select name="anrede" id="anrede">
-          <option value="herr">Herr</option>
-          <option value="frau">Frau</option>
-        </select>
+      <div class="form-group col-md-6">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" class="form-control" id="inputLastName">
       </div>
-      <div>
-        <label for="fName">Vorname:</label>
-        <input type="text" name="fName" id="fName">
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+<!--    todo add second password field and validation-->
+    <div class="row">
+      <div class="form-group col-md-8">
+        <label for="inputAddress1">Address 1</label>
+        <input type="text" class="form-control" id="inputAddress1">
       </div>
-      <div>
-        <label for="lName">Nachname:</label>
-        <input type="text" name="lName" id="lName">
+      <div class="form-group col-md-4">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2">
       </div>
-      <div>
-        <label for="plz">PLZ:</label>
-        <input type="number" name="plz" id="plz">
+    </div>
+    <div class="row">
+      <div class="form-group col-md-8">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
       </div>
-      <div>
-        <label for="street">Straße:</label>
-        <input type="text" name="street" id="street">
+      <div class="form-group col-md-4">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
       </div>
-      <div>
-        <label for="number">Nr:</label>
-        <input type="text" name="number" id="number">
+      <div class="form-group">
+        <label for="inputCountry">Country</label>
+        <input type="email" class="form-control" id="inputCountry">
       </div>
-      <input type="submit">
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Sign in</button>
   </form>
+</div>
 </body>
 </html>
