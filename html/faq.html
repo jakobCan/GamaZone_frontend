@@ -5,9 +5,9 @@
   <title>Help</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <style>
-    body { padding-top: 110px; }
     p { font-size: large }
   </style>
 </head>
@@ -17,12 +17,6 @@
 <div id="navStandard">
 
 </div>
-
-<script>
-  $(function(){
-    $("#navStandard").load("navBar.html");
-  });
-</script>
 <!--end of Navigation bar-->
 
   <div class="text-center container col-lg-8">
@@ -53,12 +47,19 @@
     </p>
   </div>
 
-
 <!--Footer bar-->
 <div id="Footer">
 
 </div>
 
+<!-------------------------------------------Scripts------------------------------------------------------------>
+<!--Navigation bar-->
+<script>
+  $(function(){
+    $("#navStandard").load("navBar.html");
+  });
+</script>
+<!--Footer-->
 <script>
   $(function(){
     $("#Footer").load("Footer.html");
