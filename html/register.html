@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>if (sessionStorage.getItem('username')) {window.location.href = "/index.html"}</script>
 </head>
 <body>
 <!--Navigation bar-->
@@ -19,6 +22,18 @@
   <h2>Register</h2>
   <form class="mt-4">
     <div class="row">
+      <div class="form-group">
+        <label for="inputUsername"> Username</label>
+        <input type="text" class="form-control" id="inputUsername">
+      </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+    <div class="form-group">
+      <label for="inputPasswordB">Repeat Password</label>
+      <input type="password" class="form-control" id="inputPasswordB">
+    </div>
       <div class="form-group col-md-6">
         <label for="inputFirstName">First Name</label>
         <input type="text" class="form-control" id="inputFirstName">
@@ -32,11 +47,8 @@
       <label for="inputEmail">Email</label>
       <input type="email" class="form-control" id="inputEmail">
     </div>
-    <div class="form-group">
-      <label for="inputPassword">Password</label>
-      <input type="password" class="form-control" id="inputPassword">
-    </div>
-<!--    todo add second password field and validation-->
+
+<!--
     <div class="row">
       <div class="form-group col-md-8">
         <label for="inputAddress1">Address 1</label>
@@ -61,7 +73,8 @@
         <input type="email" class="form-control" id="inputCountry">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Sign in</button>
+-->
+    <button type="submit" class="btn btn-primary mt-2" id="register">Submit</button>
   </form>
 </div>
 
@@ -84,4 +97,6 @@
 </script>
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script></body>
+<script src="../js/register.js"></script>
+<script src="../js/standard.js"></script>
 </html>

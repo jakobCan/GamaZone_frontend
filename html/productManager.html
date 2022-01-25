@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>if (sessionStorage.getItem('username')) {window.location.href = "/index.html"}</script>
+</head>
+<body>
+<!--Navigation bar-->
+<div id="navStandard"></div>
+<!--end of Navigation bar-->
+
+<main id="main">
+    <div class="main">
+        <!--<a href="javascript:history.go(-1)" class="btn btn-dark">Go Back</a><br/>-->
+
+        <h1>Manage Products</h1>
+
+        <div>
+            <table class="table" id="dataTable">
+                <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Product Price</td>
+                    <td>Category</td>
+                    <td>Product Description</td>
+                    <td>Product Tagline</td>
+                    <td>Product Image</td>
+                    <td>Update Product</td>
+                    <td>Delete Product</td>
+                </tr>
+                </thead>
+                <tbody id="emp"></tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+
+<!--Footer-->
+<div id="Footer"></div>
+<!--end Footer-->
+<!-------------------------------------------Scripts------------------------------------------------------------>
+<!--Navigation bar-->
+<script>
+    $(function(){
+        $("#navStandard").load("navBar.html");
+    });
+</script>
+<!--Footer-->
+<script>
+    $(function(){
+        $("#Footer").load("Footer.html");
+    });
+</script>
+<!--end of Footer bar-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+<script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/standard.js"></script>
+<script src="../js/productManager.js"></script>
+</body>
+</html>
