@@ -2,15 +2,14 @@ if(sessionStorage.getItem("username")) {
     //user logged in
     $('.hidden-when-logged-in').hide();
 }
-//user logged out
 else {
+    //user logged out
     $('.hidden-when-logged-out').hide();
 }
 
 $('#logout').click(function(e) {
     e.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
-    //var header = $("meta[name='_csrf_header']").attr("content");
 
     $.ajax ({
         method: "POST",

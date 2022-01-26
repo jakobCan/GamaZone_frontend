@@ -20,7 +20,7 @@ $(document).ready(function () {
         "columnDefs": [ {
             "targets": 6,
             "data": null,
-            "defaultContent": "<button>Update</button>"
+            "defaultContent": "<button>Edit</button>"
         } ],
         "columnDefs": [ {
             "targets": 7,
