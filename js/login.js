@@ -20,11 +20,11 @@ $('#login').click(function(e){
         success: function (data) {
             sessionStorage.setItem('username', data.username);
             //sessionStorage.setItem('token', data.token);
-            //sessionStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
             window.location.href= '../html/index.html';
         },
         error: function (data) {
             console.log("Error")
+            alert('Perhaps you got the wrong password... Please try again!');
             window.location.href= '../html/login.html';
         },
     });

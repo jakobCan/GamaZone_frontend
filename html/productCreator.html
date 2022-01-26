@@ -16,50 +16,52 @@
 <div id="navStandard"></div>
 <!--end of Navigation bar-->
 
-<form>
-    <div class="form-group row">
-        <label for="name" class="col-2 col-form-label">Name</label>
-        <div class="col-8">
-            <input id="name" name="name" type="text" class="form-control">
+<div class="container">
+    <h2>Create new product</h2>
+    <form id="product">
+        <div class="form-group row">
+            <label for="name" class="col-2 col-form-label">Name</label>
+            <div class="col-8">
+                <input id="name" name="name" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="price" class="col-2 col-form-label">Price</label>
-        <div class="col-8">
-            <input id="price" name="price" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="price" class="col-2 col-form-label">Price</label>
+            <div class="col-8">
+                <input id="price" name="price" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="category" class="col-2 col-form-label">Category</label>
-        <div class="col-8">
-            <input id="category" name="category" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="category" class="col-2 col-form-label">Category</label>
+            <div class="col-8">
+                <input id="category" name="category" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="description" class="col-2 col-form-label">Description</label>
-        <div class="col-8">
-            <input id="description" name="description" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="description" class="col-2 col-form-label">Description</label>
+            <div class="col-8">
+                <input id="description" name="description" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="tagline" class="col-2 col-form-label">tagline</label>
-        <div class="col-8">
-            <input id="tagline" name="tagline" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="tagline" class="col-2 col-form-label">tagline</label>
+            <div class="col-8">
+                <input id="tagline" name="tagline" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="PhotoURL" class="col-2 col-form-label">PhotoURL</label>
-        <div class="col-8">
-            <input id="PhotoURL" name="PhotoURL" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="photoURL" class="col-2 col-form-label">PhotoURL</label>
+            <div class="col-8">
+                <input id="photoURL" name="photoURL" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-2 col-4">
-            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group row">
+            <div class="offset-2 col-4">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>
 
 
 <!--Footer-->
@@ -80,6 +82,7 @@
 </script>
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/productCreator.js"></script>
 <script src="../js/standard.js"></script>
 </body>
 </html>

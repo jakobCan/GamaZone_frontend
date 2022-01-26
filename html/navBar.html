@@ -11,14 +11,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
-                <li class="nav-item">
+                <li class="nav-item hidden-when-logged-in">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item hidden-when-logged-in">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">shop</a>
+                </li>
                 <li class="nav-item hidden-when-logged-out">
-                    <button class="nav-link" type="button" id="logout">Logout</button>
+                    <a class="nav-link" href="productCreator.html">Create</a>
+                </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="productEditor.html">Edit</a>
+                </li>
+                <li class="logoutButton nav-item hidden-when-logged-out">
+                    <button class="nav-link btn-dark" id="logout">Logout</button>
                 </li>
             </ul>
         </div>
