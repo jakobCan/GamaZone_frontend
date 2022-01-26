@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>if (sessionStorage.getItem('username')) {window.location.href = "/html/index.html"}</script>
 </head>
 <body>
 <!--Navigation bar-->
-<div id="navStandard">
+<div id="navStandard"></div>
 
-</div>
-<!--end of Navigation bar-->
-
-  <div class="container">
-    <h2>Login</h2>
-    <form class="mt-4"> <!--method= "post" and action="action.php"-->
-      <div class="form-group">
-        <label for="loginEmail">Email</label>
-        <input type="email" class="form-control" id="loginEmail" placeholder="your@home.com">
-      </div>
-      <div class="form-group">
-        <label for="loginPassword">Password</label>
-        <input type="password" class="form-control" id="loginPassword" placeholder="$$$$$$">
-      </div>
-      <button type="submit" class="btn btn-primary mt-2">Log in</button>
+<div class="main">
+    <h1>Login</h1>
+    <form class="container" >
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-dark" id="login">Submit</button>
     </form>
-  </div>
-
-<!--Footer bar-->
-<div id="Footer">
-
 </div>
+<!--Footer bar-->
+<div id="Footer"></div>
+
 <!-------------------------------------------Scripts------------------------------------------------------------>
 <!--Navigation bar-->
 <script>
-  $(function(){
-    $("#navStandard").load("navBar.html");
-  });
+    $(function(){
+        $("#navStandard").load("navBar.html");
+    });
 </script>
-<!--Footer-->
+    <!--Footer-->
 <script>
-  $(function(){
-    $("#Footer").load("Footer.html");
-  });
+    $(function(){
+        $("#Footer").load("Footer.html");
+    });
 </script>
-<!--end of Footer bar-->
-<script src="../js/bootstrap.bundle.js"></script></body>
+    <!--end of Footer bar-->
+<script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/standard.js"></script>
+</body>
+
 </html>
