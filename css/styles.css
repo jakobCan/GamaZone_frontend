@@ -14,3 +14,16 @@ body{
     width: 50px;
     height: 50px;
 }
+.hidden-when-logged-out {
+    opacity: 100%;
+}
+.hidden-when-logged-in {
+    opacity: 100%;
+}
+
+.countdown {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+

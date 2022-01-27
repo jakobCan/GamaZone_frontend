@@ -9,57 +9,99 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>if (sessionStorage.getItem('username')) {window.location.href = "/index.html"}</script>
 </head>
 <body>
 <!--Navigation bar-->
-<div id="navStandard"></div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+                </li>
+                <li class="nav-item hidden-when-logged-in">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item hidden-when-logged-in">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">shop</a>
+                </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="productCreator.html">Create</a>
+                </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="productEditor.html">Edit</a>
+                </li>
+                </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
+                </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="userManager.html">userOverview</a>
+                </li>
+                <li class="logoutButton nav-item hidden-when-logged-out">
+                    <button class="nav-link btn-dark" id="logout">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <!--end of Navigation bar-->
 
-<form>
-    <div class="form-group row">
-        <label for="name" class="col-2 col-form-label">Name</label>
-        <div class="col-8">
-            <input id="name" name="name" type="text" class="form-control">
+<div class="container">
+    <h2>Create new product</h2>
+    <form id="product">
+        <div class="form-group row">
+            <label for="name" class="col-2 col-form-label">Name</label>
+            <div class="col-8">
+                <input id="name" name="name" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="price" class="col-2 col-form-label">Price</label>
-        <div class="col-8">
-            <input id="price" name="price" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="price" class="col-2 col-form-label">Price</label>
+            <div class="col-8">
+                <input id="price" name="price" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="category" class="col-2 col-form-label">Category</label>
-        <div class="col-8">
-            <input id="category" name="category" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="category" class="col-2 col-form-label">Category</label>
+            <div class="col-8">
+                <input id="category" name="category" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="description" class="col-2 col-form-label">Description</label>
-        <div class="col-8">
-            <input id="description" name="description" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="description" class="col-2 col-form-label">Description</label>
+            <div class="col-8">
+                <input id="description" name="description" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="tagline" class="col-2 col-form-label">tagline</label>
-        <div class="col-8">
-            <input id="tagline" name="tagline" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="tagline" class="col-2 col-form-label">tagline</label>
+            <div class="col-8">
+                <input id="tagline" name="tagline" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="PhotoURL" class="col-2 col-form-label">PhotoURL</label>
-        <div class="col-8">
-            <input id="PhotoURL" name="PhotoURL" type="text" class="form-control">
+        <div class="form-group row">
+            <label for="photoURL" class="col-2 col-form-label">PhotoURL</label>
+            <div class="col-8">
+                <input id="photoURL" name="photoURL" type="text" class="form-control">
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-2 col-4">
-            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group row">
+            <div class="offset-2 col-4">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>
 
 
 <!--Footer-->
@@ -80,6 +122,7 @@
 </script>
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/productCreator.js"></script>
 <script src="../js/standard.js"></script>
 </body>
 </html>

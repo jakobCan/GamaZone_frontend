@@ -11,9 +11,9 @@ $(document).ready(function () {
             { "data": "category" },
             { "data": "description" },
             { "data": "tagline" },
-            { "data": 'imageURL',
-                "render": function (data, type, row, meta) {
-                    return '<img src="' + data + '" alt="' + data + '" height="20" width="20"/>';
+            { "data": 'picture',
+                "render": function (url,type,full){
+                    return '<img height="50%" width="50%" src="'+full[6]+'"/>';
                 }
             },
         ],
@@ -21,15 +21,16 @@ $(document).ready(function () {
             "targets": 6,
             "data": null,
             "defaultContent": "<button>Edit</button>"
-        } ],
-        "columnDefs": [ {
+        }, {
             "targets": 7,
             "data": null,
             "defaultContent": "<button>Delete</button>"
-        } ]
+        }]
+
     });
     $('#dataTable tbody').on( 'click', 'button', function () {
-        var data = table.row( $(this).parents('tr') ).data();
+        //var data = table.row( $(this).parents('tr') ).data();
         alert( data[0] + "is deleted");
     } );
+
 });

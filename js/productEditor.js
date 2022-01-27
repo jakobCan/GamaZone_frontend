@@ -15,7 +15,7 @@ $('#updateProduct').click(function(e){
     const category = ('#category').val();
     const description = $('#description').val();
     const tagline = $('#tagline').val();
-    const photoURL = $('#photoURL').val();
+    const picture = $('#photoURL').val();
 
 
     $.ajax ({
@@ -27,7 +27,7 @@ $('#updateProduct').click(function(e){
             category: category,
             description: description,
             tagline: tagline,
-            photoURL: photoURL
+            picture: picture
         }),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
