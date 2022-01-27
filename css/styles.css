@@ -15,7 +15,7 @@ body{
     height: 50px;
 }
 .hidden-when-logged-out {
-    opacity: 50%;
+    opacity: 100%;
 }
 .hidden-when-logged-in {
     opacity: 100%;

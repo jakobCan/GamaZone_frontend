@@ -4,15 +4,56 @@
   <meta charset="UTF-8">
   <title>Legal Notice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--Navigation bar-->
-<div id="navStandard">
-
-</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+        </li>
+        <li class="nav-item hidden-when-logged-in">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item hidden-when-logged-in">
+          <a class="nav-link" href="register.html">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">shop</a>
+        </li>
+        <li class="nav-item hidden-when-logged-out">
+          <a class="nav-link" href="productCreator.html">Create</a>
+        </li>
+        <li class="nav-item hidden-when-logged-out">
+          <a class="nav-link" href="productEditor.html">Edit</a>
+        </li>
+        </li>
+        <li class="nav-item hidden-when-logged-out">
+          <a class="nav-link" href="productManager.html">SpaceOverview</a>
+        </li>
+        <li class="nav-item hidden-when-logged-out">
+          <a class="nav-link" href="userManager.html">userOverview</a>
+        </li>
+        <li class="logoutButton nav-item hidden-when-logged-out">
+          <button class="nav-link btn-dark" id="logout">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!--end of Navigation bar-->
 
 <div class="text-left container col-lg-8">
@@ -164,5 +205,6 @@ All texts are copyrighted.<p style="margin-top:15px;">Source: Created with the <
 </script>
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/standard.js"></script>
 </body>
 </html>
