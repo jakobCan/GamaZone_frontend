@@ -1,3 +1,31 @@
+/*$.ajax ({
+    method: "GET",
+    url: 'http://localhost:8080/products/{Id}',//
+    dataType: 'json',
+    success: function () {
+
+    }
+});*/
+/*function deleteProductById(id) {
+
+    // Getting value from the first cell -> the product ID
+    var currentRow = $(this).closest("tr");
+    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/admin/"+parseInt(id),
+        dataType: "json",
+        statusCode: {
+            200: function() {
+                console.log("product deleted")
+                location.reload()
+            },
+            500: function () {console.log("product not deleted")
+            }
+        }
+    })
+}*/
 
 /*$('#updateProduct').click(function(e){
     e.preventDefault();
@@ -11,8 +39,8 @@
 
 
     $.ajax ({
-        method: "PUT",
-        url: "http://localhost:8080/products/admin/{productId}",
+        method: "DELETE",
+        url: "http://localhost:8080/admin/"+id,
         data: JSON.stringify({
             name: name,
             price: parseInt(price),

@@ -3,6 +3,10 @@ $('#login').click(function(e){
     const username = $('#username').val();
     const password = $('#password').val();
 
+    data = {
+        username: username,
+        password: password,
+    }
     $.ajax ({
         method: "POST",
         url: "http://localhost:8080/login",

@@ -47,6 +47,9 @@
                 <li class="nav-item hidden-when-logged-out">
                     <a class="nav-link" href="userManager.html">userOverview</a>
                 </li>
+                <li class="nav-item hidden-when-logged-out">
+                    <a class="nav-link" href="userEditor.html">UserEdit</a>
+                </li>
                 <li class="logoutButton nav-item hidden-when-logged-out">
                     <button class="nav-link btn-dark" id="logout">Logout</button>
                 </li>
@@ -64,14 +67,15 @@
             <table class="table" id="dataTable">
                 <thead>
                 <tr>
-                    <td>Product Name</td>
-                    <td>Product Price</td>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Price</td>
                     <td>Category</td>
-                    <td>Product Description</td>
-                    <td>Product Tagline</td>
-                    <td>Product Image</td>
-                    <td>Update Product</td>
-                    <td>Delete Product</td>
+                    <td>Description</td>
+                    <td>Tagline</td>
+                    <td>Image</td>
+                    <td>Update</td>
+                    <td>Delete</td>
                 </tr>
                 </thead>
                 <tbody id="emp"></tbody>
@@ -86,12 +90,6 @@
 <div id="Footer"></div>
 <!--end Footer-->
 <!-------------------------------------------Scripts------------------------------------------------------------>
-<!--Navigation bar-->
-<script>
-    $(function(){
-        $("#navStandard").load("navBar.html");
-    });
-</script>
 <!--Footer-->
 <script>
     $(function(){
@@ -103,5 +101,6 @@
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
 <script src="../js/productManager.js"></script>
+<script src="../js/productDelete.js"></script>
 </body>
 </html>
