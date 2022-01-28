@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UserOverview</title>
+  <title>Edit user</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/styles.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -61,37 +59,79 @@
 </nav>
 <!--end of Navigation bar-->
 
-<main id="main">
-  <div class="main">
-    <h1>Manage Users</h1>
-
-    <div>
-      <table class="table" id="dataTable">
-        <thead>
-        <tr>
-          <td>UserId</td>
-          <td>UserName</td>
-          <td>Email</td>
-          <td>FirstName</td>
-          <td>LastName</td>
-          <td>Password</td>
-          <td>Role</td>
-          <td>Update User</td>
-          <td>Delete User</td>
-        </tr>
-        </thead>
-        <tbody id="emp"></tbody>
-      </table>
+<!-- Edit User -->
+<div class="container main-container">
+  <div class="row">
+    <h2 class="text-center mt-4">Edit User</h2>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Firstname</span>
+        <input id="user_edit_firstname" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Lastname</span>
+        <input id="user_edit_surname" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Username</span>
+        <input id="user_edit_username" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Email</span>
+        <input id="user_edit_email" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Address</span>
+        <input id="user_edit_address" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Roles</span>
+        <input id="user_edit_roles" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">Id</span>
+        <input id="user_edit_id" type="text" class="form-control" disabled>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="row">
+        <div class="col-6">
+          <select id="user_active" class="form-select form-select-sm">
+            <option value="1">Active</option>
+            <option value="0">Not Active</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <button id="save_user_edits" type="button" class="btn-edit-user btn btn-outline-info ms-3 ms-md-5">Save</button>
+        </div>
+      </div>
     </div>
   </div>
-</main>
+</div>
 
 <!--Footer-->
 <div id="Footer"></div>
 <!--end Footer-->
 <!-------------------------------------------Scripts------------------------------------------------------------>
+<!--Footer-->
+<script>
+  $(function(){
+    $("#Footer").load("Footer.html");
+  });
+</script>
 <!--end of Footer bar-->
-<script src="../js/userManager.js"></script>
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
 </body>

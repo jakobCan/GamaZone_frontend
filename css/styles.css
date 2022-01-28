@@ -1,5 +1,6 @@
 body{
     padding-top: 110px;
+
 }
 
 .navbar-brand {
@@ -25,5 +26,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 20%;
+}
+.tinytext {
+    font-size: 7px;
 }
 
