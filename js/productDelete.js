@@ -57,7 +57,7 @@
         },
         success: function (data) {
             sessionStorage.setItem('type', data.type);
-            window.location.href= '../Webshop/productOverview.html';
+            window.location.href= '../html/productManager.html';
             alert("The Product was updated");
         },
         error: function (data) {

@@ -43,13 +43,32 @@ $(document).ready(function () {
         "picture": $("#photoURL").val()
     };
 
-    $('#dataTable tbody ').on( 'click', 'button', function () {
-        deleteProductById(JSON.stringify(product.id))
+    $(document).ready('#dataTable tbody ').on( 'click', 'button', function () {
+        //deleteProductById(JSON.stringify(productdata))
         alert("Product with ID \'" + id + "\' was deleted");
         //var data = table.row( $(this).parents('tr') ).data();
         //var id = $(this).attr('id');
     } );
+    function deleteProductById(id) {
 
+        // Getting value from the first cell -> the product ID
+        var currentRow = $(this).closest("tr");
+        var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8080/admin/"+parseInt(id),
+            dataType: "json",
+            statusCode: {
+                200: function() {
+                    console.log("product deleted")
+                    location.reload()
+                },
+                500: function () {console.log("product not deleted")
+                }
+            }
+        })
+    }
 });
 
 

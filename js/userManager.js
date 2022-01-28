@@ -26,15 +26,14 @@ $(document).ready(function () {
         }]
     });
 });
-let userdata = {
 
-}
-/*document.getElementById('btn-delete').addEventListener('click', function () {
+/*$(document).ready('#btn-delete').on('click', function () {
     var currentRow = $(this).closest("tr");         // Getting value from the first cell -> the product ID
     var id = currentRow.find("td:eq(0)").text();    // get current row 1st TD value
+    console.log(id)
     $.ajax({
         type: 'DELETE',
-        url: 'http://localhost:8080/users/' + parseInt(id),
+        url: 'http://localhost:8080/users/'+id,
     }).done(function () {
         location.reload();
         alert("Deleted")
@@ -43,7 +42,7 @@ let userdata = {
 })*/
 
 
-    $('#btn-delete').on( 'click','[id=btn-delete]', function () {
+$(document).ready('#btn-delete').on( 'click', function () {
         //var currentRow = $(this).closest("tr");         // Getting value from the first cell -> the product ID
         //var id = currentRow.find("td:eq(0)").text();    // get current row 1st TD value
         if ($(window).width() > 320) {
@@ -54,14 +53,14 @@ let userdata = {
 
         $.ajax({
             type: 'DELETE',
-            url: 'http://localhost:8080/users/' + parseInt(id),
+            url: 'http://localhost:8080/users/' + data,
         }).done(function () {
             location.reload();
             alert("Deleted")
         });
 });
 
-$('#dataTable tbody').on('click', '.btn-edit-user', EditUser);
+$('btn-edit-user').on('click', '.btn-edit-user', EditUser);
 //$("#edit_users_table").on('click', '.btn-edit-user', EditUser);
 function EditUser() {
     var currentRow = $(this).closest("tr");

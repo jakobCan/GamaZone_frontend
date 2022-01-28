@@ -14,7 +14,7 @@ $('#logout').click(function(e) {
     $.ajax ({
         method: "POST",
         url: "http://localhost:8080/logout",
-        data: token,
+        //data: token,
         success: function (data) {
             sessionStorage.removeItem('username')
             window.location.href= '../html/login.html';
