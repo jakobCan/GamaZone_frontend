@@ -1,4 +1,4 @@
-if(sessionStorage.getItem("username")) {
+if(sessionStorage.getItem("userRole")) {
     //user logged in
     $('.hidden-when-logged-in').hide();
 }
@@ -16,7 +16,8 @@ $('#logout').click(function(e) {
         url: "http://localhost:8080/logout",
         //data: token,
         success: function (data) {
-            sessionStorage.removeItem('username')
+            //sessionStorage.removeItem('username')
+            sessionStorage.clear()
             window.location.href= '../html/login.html';
         },
         error: function () {
