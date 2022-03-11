@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>hidden stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -11,7 +11,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--Navigation bar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -23,73 +22,69 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+                    <a class="nav-link" href="../html/index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
                 <li class="nav-item anonymous">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="../html/login.html">Login</a>
                 </li>
                 <li class="nav-item anonymous">
-                    <a class="nav-link" href="register.html">Register</a>
+                    <a class="nav-link" href="../html/register.html">Register</a>
                 </li>
                 <li class="nav-item anonymous">
-                    <a class="nav-link" href="shop.html">shop</a>
+                    <a class="nav-link" href="../html/shop.html">shop</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link admin" href="productCreator.html">Create</a>
+                    <a class="nav-link" href="../html/productCreator.html">Create</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="productEditor.html">Edit</a>
+                    <a class="nav-link" href="../html/productEditor.html">Edit</a>
+                </li>
                 </li>
                 <li class="nav-item user admin">
-                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
+                    <a class="nav-link" href="../html/productManager.html">SpaceOverview</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="userManager.html">userOverview</a>
+                    <a class="nav-link" href="../html/userManager.html">userOverview</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="userEditor.html">UserEdit</a>
+                    <a class="nav-link" href="../html/userEditor.html">UserEdit</a>
                 </li>
-                <li class="nav-item user admin">
-                    <a class="nav-link" id="logout">Logout</a>
+                <li class="logoutButton nav-item user admin">
+                    <button class="nav-link btn-dark" id="logout">Logout</button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<!--end of Navigation bar-->
-<div class="main">
 
-    <form class="container" >
-        <h2>Login</h2>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-dark" id="login">Submit</button>
-    </form>
+<div class="anonymous">
+    <center><h1>Welcome Anonymous User!</h1></center>
 </div>
+
+<div class="user">
+    <center><h1>Welcome End-User!</h1></center>
+</div>
+
+<div class="admin">
+    <center><h1>Welcome Admin!</h1></center>
+</div>
+
+<div>
+    <center><h1>Work in progress</h1></center>
+</div>
+
 <!--Footer bar-->
 <div id="Footer"></div>
 
 <!-------------------------------------------Scripts------------------------------------------------------------>
-    <!--Footer-->
+<!--Footer-->
 <script>
     $(function(){
         $("#Footer").load("Footer.html");
     });
 </script>
-    <!--end of Footer bar-->
+<!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
-<script src="../js/login.js"></script>
 <script src="../js/standard.js"></script>
 </body>
-
 </html>

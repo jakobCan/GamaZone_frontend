@@ -23,33 +23,32 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
-                <li class="nav-item hidden-when-logged-in">
+                <li class="nav-item anonymous">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
-                <li class="nav-item hidden-when-logged-in">
+                <li class="nav-item anonymous">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item anonymous user admin">
                     <a class="nav-link" href="shop.html">shop</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
-                    <a class="nav-link" href="productCreator.html">Create</a>
+                <li class="nav-item admin">
+                    <a class="nav-link admin" href="productCreator.html">Create</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="productEditor.html">Edit</a>
                 </li>
-                </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item user admin">
                     <a class="nav-link" href="productManager.html">SpaceOverview</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="userManager.html">userOverview</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="userEditor.html">UserEdit</a>
                 </li>
-                <li class="logoutButton nav-item hidden-when-logged-out">
-                    <button class="nav-link btn-dark" id="logout">Logout</button>
+                <li class="nav-item user admin">
+                    <a class="nav-link" id="logout">Logout</a>
                 </li>
             </ul>
         </div>
@@ -59,7 +58,18 @@
 <div class="container">
 </div>
 <div class="container" style="text-align: center" >
-    <h1>Space, the final frontier!</h1><br>
+    <div class="anonymous">
+        <h1>Welcome Anonymous to the final frontier!</h1>
+    </div>
+
+    <div class="user">
+        <h1>Welcome User to the final frontier!</h1>
+    </div>
+
+    <div class="admin">
+        <h1>Welcome Admin to the final frontier!</h1>
+    </div>
+<!--    <h1>Space, the final frontier!</h1><br>-->
     <h5> Ever feel like this planet is overcrowded? So do we...</h5>
     <h5> Ever feel sick of Covid, Omicron and so on? So do we...</h5>
     <h5> Ever feel like that it is just too small? So do we...</h5>

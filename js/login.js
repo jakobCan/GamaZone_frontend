@@ -3,25 +3,19 @@ $('#login').click(function(e){
     const username = $('#username').val();
     const password = $('#password').val();
     let userRole = "";
-
-   /* $.ajax ({
-        method: "GET",
-        url: `http://localhost:8080/user/username/` + username,
-        data:
-
-    })*/
+    //let isActive = "";
 
     //$.get("http://localhost:8080/user/username/" + username, role, success);
 
-
-    $.ajax({
+/*    $.ajax({
         method:"get",
         async: false,
         url: 'http://localhost:8080/user/username/' + username,
         success: function(data) {
             userRole = data.role;
+            //isActive = data.active;
         }
-    });
+    });*/
 
     let data = {
         username: username,
@@ -45,6 +39,7 @@ $('#login').click(function(e){
         success: function (data) {
             sessionStorage.setItem('username',username);
             sessionStorage.setItem('userRole', userRole);
+            //sessionStorage.setItem('active', isActive);
             //sessionStorage.setItem('token', data.token);
             window.location.href= '../html/index.html';
         },
