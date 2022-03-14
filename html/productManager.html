@@ -25,33 +25,32 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
-                <li class="nav-item hidden-when-logged-in">
+                <li class="nav-item anonymous">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
-                <li class="nav-item hidden-when-logged-in">
+                <li class="nav-item anonymous">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item anonymous user admin">
                     <a class="nav-link" href="shop.html">shop</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
-                    <a class="nav-link" href="productCreator.html">Create</a>
+                <li class="nav-item admin">
+                    <a class="nav-link admin" href="productCreator.html">Create</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="productEditor.html">Edit</a>
                 </li>
-                </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item user admin">
                     <a class="nav-link" href="productManager.html">SpaceOverview</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="userManager.html">userOverview</a>
                 </li>
-                <li class="nav-item hidden-when-logged-out">
+                <li class="nav-item admin">
                     <a class="nav-link" href="userEditor.html">UserEdit</a>
                 </li>
-                <li class="logoutButton nav-item hidden-when-logged-out">
-                    <button class="nav-link btn-dark" id="logout">Logout</button>
+                <li class="nav-item user admin">
+                    <a class="nav-link" id="logout">Logout</a>
                 </li>
             </ul>
         </div>

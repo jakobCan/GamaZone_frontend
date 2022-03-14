@@ -31,3 +31,7 @@ body{
     font-size: 7px;
 }
 
+/*hide role-specific div html */
+.anonymous, .user, .admin {
+    display: none;
+}

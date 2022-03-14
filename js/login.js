@@ -2,11 +2,26 @@ $('#login').click(function(e){
     e.preventDefault();
     const username = $('#username').val();
     const password = $('#password').val();
+    let userRole = "";
+    //let isActive = "";
 
-    data = {
+    //$.get("http://localhost:8080/user/username/" + username, role, success);
+
+/*    $.ajax({
+        method:"get",
+        async: false,
+        url: 'http://localhost:8080/user/username/' + username,
+        success: function(data) {
+            userRole = data.role;
+            //isActive = data.active;
+        }
+    });*/
+
+    let data = {
         username: username,
         password: password,
     }
+
     $.ajax ({
         method: "POST",
         url: "http://localhost:8080/login",
@@ -22,7 +37,9 @@ $('#login').click(function(e){
             withCredentials: true
         },
         success: function (data) {
-            sessionStorage.setItem('username', data.username);
+            sessionStorage.setItem('username',username);
+            sessionStorage.setItem('userRole', userRole);
+            //sessionStorage.setItem('active', isActive);
             //sessionStorage.setItem('token', data.token);
             window.location.href= '../html/index.html';
         },
