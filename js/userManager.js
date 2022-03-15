@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var table = $('#dataTable').DataTable({
         "ajax": {
-            "url": "http://localhost:8080/user",
+            "url": "http://localhost:8080/users",
             "type": "GET",
             "dataSrc": ""
         },
@@ -18,57 +18,38 @@ $(document).ready(function () {
         "columnDefs": [ {
             "targets": 7,
             "data": null,
-            "defaultContent": "<button id='btn-edit-user' class='btn-dark'>Edit</button>"
+            "render": function (data, type, full) {
+                return `<button id=${data.userId} class='editButton'>Edit</button>`;
+            },
         }, {
             "targets": 8,
             "data": null,
-            "defaultContent": "<button id='btn-delete' class='btn-dark'>Delete</button>"
+            "render": function (data, type, full) {
+                return `<button id=${data.userId} class='deleteButton'>Delete</button>`;
+            },
         }]
     });
 });
 
-/*$(document).ready('#btn-delete').on('click', function () {
-    var currentRow = $(this).closest("tr");         // Getting value from the first cell -> the product ID
-    var id = currentRow.find("td:eq(0)").text();    // get current row 1st TD value
-    console.log(id)
+$(document).ready('body').on( 'click', '.deleteButton', function (ev) {
+    const { id, ...data} = ev.target;
     $.ajax({
         type: 'DELETE',
-        url: 'http://localhost:8080/users/'+id,
+        url: 'http://localhost:8080/users/' + id,
     }).done(function () {
         location.reload();
-        alert("Deleted")
+        alert("Deleted user with id " + id)
     });
+} );
 
-})*/
 
-
-$(document).ready('#btn-delete').on( 'click', function () {
-        //var currentRow = $(this).closest("tr");         // Getting value from the first cell -> the product ID
-        //var id = currentRow.find("td:eq(0)").text();    // get current row 1st TD value
-        if ($(window).width() > 320) {
-            data = $(this).parents('tr').find('td');
-        } else {
-            data = $(this).parents('tr').prev().eq(0).find('td');
-        }
-
-        $.ajax({
-            type: 'DELETE',
-            url: 'http://localhost:8080/users/' + data,
-        }).done(function () {
-            location.reload();
-            alert("Deleted")
-        });
-});
-
-$('btn-edit-user').on('click', '.btn-edit-user', EditUser);
-//$("#edit_users_table").on('click', '.btn-edit-user', EditUser);
-function EditUser() {
-    var currentRow = $(this).closest("tr");
-    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+$(document).ready('body').on('click', '.editButton', EditUser);
+function EditUser(ev) {
+    const { id, ...data} = ev.target;
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/user/' + id,
+        url: 'http://localhost:8080/users/' + id,
     }).done(function (data) {
 
         $('#userId').val(data.userId);

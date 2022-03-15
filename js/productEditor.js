@@ -1,39 +1,41 @@
+//get id from last webpage
+//var url = (window.location).href;
+//var id = url.substring(url.lastIndexOf('='));
 
-/*$('#updateProduct').click(function(e){
+// Product to be changed
+$.ajax ({
+    method: "GET",
+    url: 'http://localhost:8080/products/' + id,
+    dataType: 'json'
+}).done(function(data) {
+    document.getElementById('id').value = data.id
+    document.getElementById('name').value = data.name;
+    document.getElementById('price').value = data.price;
+    document.getElementById('category').value = data.category;
+    document.getElementById('description').value = data.description;
+    document.getElementById('tagline').value = data.tagline;
+    document.getElementById('picture').value = data.picture;
+});
+
+
+// Update product
+$(document).ready('.editButton').click(function(e){
     e.preventDefault();
-
-    const name = $('#name').val();
-    const price = $('#price').val();
-    const category = ('#category').val();
-    const description = $('#description').val();
-    const tagline = $('#tagline').val();
-    const picture = $('#photoURL').val();
-
 
     $.ajax ({
         method: "PUT",
-        url: "http://localhost:8080/products/admin/{productId}",
-        data: JSON.stringify({
-            name: name,
-            price: parseInt(price),
-            category: category,
-            description: description,
-            tagline: tagline,
-            picture: picture
-        }),
+        url: "http://localhost:8080/products/" + id,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-
         xhrFields: {
-            withCredentials: true
+            withCredentials: true,
         },
-        success: function (data) {
-            sessionStorage.setItem('type', data.type);
-            window.location.href= '../Webshop/productOverview.html';
+        success: function () {
+            window.location.href= '../frontendWebshop/productOverview.html';
             alert("The Product was updated");
         },
-        error: function (data) {
-            console.log("Error Product Update")
+        error: function () {
+            console.log("Error on Product Update")
         },
     });
-});*/
+});
