@@ -8,67 +8,81 @@ $(document).ready(function () {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "id" },
-            { "data": "name" },
-            { "data": "price" },
-            { "data": "category" },
-            { "data": "description" },
-            { "data": "tagline" },
-            { "data": 'picture',
-                "render": function (url,type,full){
+            {"data": "id"},
+            {"data": "name"},
+            {"data": "price"},
+            {"data": "category"},
+            {"data": "description"},
+            {"data": "tagline"},
+            {
+                "data": 'picture',
+                "render": function (url, type, full) {
                     return '<img height="50%" width="50%" src="../images/Planets/planet-1519089_1280.jpg"/>';
                 }
             },
+
         ],
         "columnDefs": [
             {
-            "targets": 7,
-            "data": null,
-            "defaultContent": "<button>Edit</button>"
-        },
+                "targets": 7,
+                "data": null,
+                "render": function (data, type, full) {
+                    return `<button id=${data.id} class='editButton'>Edit</button>`;
+                },
+            },
             {
-            "targets": 8,
-            "data": null,
-            "defaultContent": "<button>Delete</button>"
-        }]
-
+                "targets": 8,
+                "data": null,
+                "render": function (data, type, full) {
+                    return `<button id=${data.id} class='deleteButton'>Delete</button>`;
+                },
+            }]
     });
 
-    let productdata = {
-        "name": $("#name").val(),
-        "price": $("#price").val(),
-        "category": $('#category').val(),
-        "description": $("#description").val(),
-        "tagline": $("#tagline").val(),
-        "picture": $("#photoURL").val()
-    };
 
-    $(document).ready('#dataTable tbody ').on( 'click', 'button', function () {
-        //deleteProductById(JSON.stringify(productdata))
-        alert("Product with ID \'" + id + "\' was deleted");
-        //var data = table.row( $(this).parents('tr') ).data();
-        //var id = $(this).attr('id');
+    $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
+        const { id, ...data} = ev.target;
+        //console.log(data);
+        //console.log(id)
+        deleteProductById(id);
+        alert
     } );
-    function deleteProductById(id) {
 
-        // Getting value from the first cell -> the product ID
-        var currentRow = $(this).closest("tr");
-        var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+    $(document).ready('body').on( 'click', '.editButton', function (ev) {
+        const { id, ...data} = ev.target;
+        console.log(id)
+    } );
+
+    function deleteProductById(id) {
 
         $.ajax({
             type: "DELETE",
-            url: "http://localhost:8080/admin/"+parseInt(id),
+            url: "http://localhost:8080/products/" + id,
             dataType: "json",
             statusCode: {
                 200: function() {
-                    console.log("product deleted")
+                    //console.log("product deleted with " + id)
+                    alert("product deleted with id=" + id)
                     location.reload()
                 },
                 500: function () {console.log("product not deleted")
                 }
             }
         })
+
     }
+
+
+
 });
 
 
+/* let productdata = {
+     "id": $("#id").val(),
+     "name": $("#name").val(),
+     "price": $("#price").val(),
+     "category": $('#category').val(),
+     "description": $("#description").val(),
+     "tagline": $("#tagline").val(),
+     "picture": $("#photoURL").val()
+ };*/
