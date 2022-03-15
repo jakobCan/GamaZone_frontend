@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Create New Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -39,7 +39,6 @@
                 </li>
                 <li class="nav-item hidden-when-logged-out">
                     <a class="nav-link" href="productEditor.html">Edit</a>
-                </li>
                 </li>
                 <li class="nav-item hidden-when-logged-out">
                     <a class="nav-link" href="productManager.html">SpaceOverview</a>
@@ -87,15 +86,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="tagline" class="col-2 col-form-label">tagline</label>
+            <label for="tagline" class="col-2 col-form-label">Tagline</label>
             <div class="col-8">
                 <input id="tagline" name="tagline" type="text" class="form-control">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="photoURL" class="col-2 col-form-label">PhotoURL</label>
-            <div class="col-8">
-                <input id="photoURL" name="photoURL" type="text" class="form-control">
             </div>
         </div>
         <div class="form-group row">
@@ -104,6 +97,16 @@
             </div>
         </div>
     </form>
+    <h2>Upload a picture:</h2>
+    <form id="singleUploadForm" name="singleUploadForm">
+        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="upload-response">
+        <div id="singleFileUploadError"></div>
+        <div id="singleFileUploadSuccess"></div>
+    </div>
+
 </div>
 
 
@@ -120,6 +123,7 @@
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/productCreator.js"></script>
+<script src="../js/fileUpload.js"></script>
 <script src="../js/standard.js"></script>
 </body>
 </html>
