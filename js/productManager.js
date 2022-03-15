@@ -45,7 +45,6 @@ $(document).ready(function () {
         //console.log(data);
         //console.log(id)
         deleteProductById(id);
-        alert
     } );
 
     $(document).ready('body').on( 'click', '.editButton', function (ev) {
@@ -71,8 +70,6 @@ $(document).ready(function () {
         })
 
     }
-
-
 
 });
 
