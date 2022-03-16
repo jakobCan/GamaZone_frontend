@@ -33,26 +33,31 @@
         <li class="nav-item anonymous">
           <a class="nav-link" href="register.html">Register</a>
         </li>
-        <li class="nav-item anonymous user admin">
-          <a class="nav-link" href="shop.html">shop</a>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+        <li class="nav-item user">
+          <a class="nav-link" href="cart.html">Cart</a>
         </li>
         <li class="nav-item admin">
-          <a class="nav-link admin" href="productCreator.html">Create</a>
+          <a class="nav-link" href="productCreator.html">Create</a>
         </li>
         <li class="nav-item admin">
           <a class="nav-link" href="productEditor.html">Edit</a>
         </li>
-        <li class="nav-item user admin">
+        <li class="nav-item admin">
           <a class="nav-link" href="productManager.html">SpaceOverview</a>
         </li>
         <li class="nav-item admin">
-          <a class="nav-link" href="userManager.html">userOverview</a>
+          <a class="nav-link" href="userManager.html">UserOverview</a>
         </li>
         <li class="nav-item admin">
           <a class="nav-link" href="userEditor.html">UserEdit</a>
         </li>
+      </ul>
+      <ul class="navbar-nav">
         <li class="nav-item user admin">
-          <a class="nav-link" id="logout">Logout</a>
+          <a class="nav-link" href="login.html" id="logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -65,7 +70,7 @@
     <h1>Manage Users</h1>
 
     <div>
-      <table class="table" id="dataTable">
+      <table class="table admin" id="dataTable">
         <thead>
         <tr>
           <td>UserId</td>
@@ -89,6 +94,12 @@
 <div id="Footer"></div>
 <!--end Footer-->
 <!-------------------------------------------Scripts------------------------------------------------------------>
+<!--Footer-->
+<script>
+  $(function(){
+    $("#Footer").load("Footer.html");
+  });
+</script>
 <!--end of Footer bar-->
 <script src="../js/userManager.js"></script>
 <script src="../js/bootstrap.bundle.js"></script>

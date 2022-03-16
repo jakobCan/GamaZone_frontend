@@ -1,6 +1,19 @@
-//get id from last webpage
-//var url = (window.location).href;
-//var id = url.substring(url.lastIndexOf('='));
+
+fetchProducts = function () {
+    $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8080/products',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    ).done(function (data) {
+        for (let i=0; i<data.length; i++){
+            $('<option/>').val(data[i].id).text("ID: "+data[i].id+" - "+data[i].name).appendTo('#productDropdown')
+        }
+    });
+}
 
 // Product to be changed
 $.ajax ({
@@ -31,11 +44,11 @@ $(document).ready('.editButton').click(function(e){
             withCredentials: true,
         },
         success: function () {
-            window.location.href= '../frontendWebshop/productOverview.html';
-            alert("The Product was updated");
+            window.location.href= '../html/productManager.html';
+            alert("Success! The Product was updated");
         },
         error: function () {
-            console.log("Error on Product Update")
+            console.log("Error during Product Update")
         },
     });
 });
