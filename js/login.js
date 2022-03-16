@@ -37,8 +37,8 @@ $('#login').click(function(e){
             withCredentials: true
         },
         success: function (data) {
-            sessionStorage.setItem('username',username);
-            sessionStorage.setItem('userRole', userRole);
+            //sessionStorage.setItem('username',username);
+            //sessionStorage.setItem('userRole', userRole);
             //sessionStorage.setItem('active', isActive);
             //sessionStorage.setItem('token', data.token);
             window.location.href= '../html/index.html';
