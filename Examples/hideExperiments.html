@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>hidden stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
-    <script src="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--Navigation bar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -24,71 +22,60 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+                    <a class="nav-link" href="../html/index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
                 <li class="nav-item anonymous">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="../html/login.html">Login</a>
                 </li>
                 <li class="nav-item anonymous">
-                    <a class="nav-link" href="register.html">Register</a>
+                    <a class="nav-link" href="../html/register.html">Register</a>
                 </li>
-                <li class="nav-item anonymous user admin">
-                    <a class="nav-link" href="shop.html">shop</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link admin" href="productCreator.html">Create</a>
+                <li class="nav-item anonymous">
+                    <a class="nav-link" href="../html/shop.html">shop</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="productEditor.html">Edit</a>
+                    <a class="nav-link" href="../html/productCreator.html">Create</a>
+                </li>
+                <li class="nav-item admin">
+                    <a class="nav-link" href="../html/productEditor.html">Edit</a>
+                </li>
                 </li>
                 <li class="nav-item user admin">
-                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
+                    <a class="nav-link" href="../html/productManager.html">SpaceOverview</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="userManager.html">userOverview</a>
+                    <a class="nav-link" href="../html/userManager.html">userOverview</a>
                 </li>
                 <li class="nav-item admin">
-                    <a class="nav-link" href="userEditor.html">UserEdit</a>
+                    <a class="nav-link" href="../html/userEditor.html">UserEdit</a>
                 </li>
-                <li class="nav-item user admin">
-                    <a class="nav-link" id="logout">Logout</a>
+                <li class="logoutButton nav-item user admin">
+                    <button class="nav-link btn-dark" id="logout">Logout</button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<!--end of Navigation bar-->
 
-<main id="main">
-    <div class="main">
-        <h1>Manage Products</h1>
+<div class="anonymous">
+    <center><h1>Welcome Anonymous User!</h1></center>
+</div>
 
-        <div>
-            <table class="table" id="dataTable">
-                <thead>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Category</td>
-                    <td>Description</td>
-                    <td>Tagline</td>
-                    <td>Image</td>
-                    <td>Update</td>
-                    <td>Delete</td>
-                </tr>
-                </thead>
-                <tbody id="emp"></tbody>
-            </table>
-        </div>
-    </div>
-</main>
+<div class="user">
+    <center><h1>Welcome End-User!</h1></center>
+</div>
 
+<div class="admin">
+    <center><h1>Welcome Admin!</h1></center>
+</div>
 
+<div>
+    <center><h1>Work in progress</h1></center>
+</div>
 
-<!--Footer-->
+<!--Footer bar-->
 <div id="Footer"></div>
-<!--end Footer-->
+
 <!-------------------------------------------Scripts------------------------------------------------------------>
 <!--Footer-->
 <script>
@@ -97,10 +84,7 @@
     });
 </script>
 <!--end of Footer bar-->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
-<script src="../js/productManager.js"></script>
-<script src="../js/productEditor.js"></script>
 </body>
 </html>

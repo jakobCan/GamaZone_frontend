@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+                    <a id="index" class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
                 </li>
                 <li class="nav-item hidden-when-logged-in">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a id="login" class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item hidden-when-logged-in">
-                    <a class="nav-link" href="register.html">Register</a>
+                    <a id="register" class="nav-link" href="register.html">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shop.html">shop</a>
@@ -44,4 +44,6 @@
         </div>
     </div>
 </nav>
+
+<script>console.log(window.location.pathname)</script> <!--write own code if index.html then active-->
 <!--end of Navigation bar-->

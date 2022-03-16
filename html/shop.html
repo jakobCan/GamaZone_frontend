@@ -1,81 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Register</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <style>
+        .cards tbody tr {
+            float: left;
+            width: 20rem;
+            margin: 0.5rem;
+            border: 0.0625rem solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+            box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,0.25);
+        }
+        .cards tbody td {
+            display: block;
+        }
+        .table tbody label {
+            display: none;
+        }
+        .cards tbody label {
+            display: inline;
+            position: relative;
+            font-size: 85%;
+            top: -0.5rem;
+            float: left;
+            color: #808080;
+            min-width: 4rem;
+            margin-left: 0;
+            margin-right: 1rem;
+            text-align: left;
+        }
+        tr.selected label {
+            color: #404040;
+        }
+
+        .table .fa {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .cards .fa {
+            font-size: 7.5rem;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous" type="7caed6d53d62b29227787649-text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="7caed6d53d62b29227787649-text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous" type="7caed6d53d62b29227787649-text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/sc-1.4.3/sl-1.2.4/datatables.min.css" />
+    <script type="7caed6d53d62b29227787649-text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/sc-1.4.3/sl-1.2.4/datatables.min.js"></script>
+
+    <script type="7caed6d53d62b29227787649-text/javascript">
+        var colors = ["Crimson ", "Cyan ", "DarkBlue ", "DarkCyan ", "DarkGoldenRod ", "DarkGray ", "DarkGrey ", "DarkGreen ", "DarkKhaki ", "DarkMagenta ", "DarkOliveGreen ", "DarkOrange "];
+
+        $(document).ready(function () {
+
+            var table = $('#register').DataTable({
+                dom: 'fBti',
+                pageLength: -1,
+                buttons: [
+                    {
+                        text: '<i class="fa fa-id-badge fa-fw fa-lg" aria-hidden="true"></i> Switch List/Cards',
+                        className: 'animated bounce',
+                        action: function () {
+
+                            $("#register").toggleClass("cards");
+                            $("#register thead").toggle();
+                            $("#card-toggle .fa").toggleClass("fa-table");
+                            $("#card-toggle .fa").toggleClass("fa-id-badge");
+
+                            if($("#register").hasClass("cards")){
+                                var max = 0;
+                                $('#register tr').each(function() {
+                                    max = Math.max($(this).height(), max);
+                                }).height(max);
+                            } else {
+                                $("#register tr").each(function(){
+                                    $(this).height("auto");
+                                });
+                            }
+
+                        },
+                        attr:  {
+                            title: 'Change views',
+                            id: 'card-toggle'
+                        }
+                    }
+                ],
+                select: 'single',
+                        "ajax": {
+                            "url": "http://localhost:8080/products",
+                            "type": "GET",
+                            "dataSrc": ""
+                },
+                columns: [
+                    {   /* created column to show a picture just to make this demo look better */
+                        orderable: false, data: 'Photo', name: 'Photo', orderable: false, defaultContent: '', title: 'Photo',
+                        visible: true, className: 'text-center', width: '20px',
+
+                        createdCell: function (td, cellData, rowData, row, col) {
+                            var $ctl = $('<i class="fa fa-user fa-fw"></i>').css('color', colors[Math.round(Math.random() * colors.length) + 1])
+                            $(td).append($ctl);
+                        }
+                    },
+                    /* I added a label to the column for the field name which will show up in the card display */
+                    {
+                        data: "name", name: "name",
+                        render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data;}
+                    },
+                    {
+                        data: "category", name: "category", class: 'text-left',
+                        render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data; }
+                    },
+                    {
+                        data: "tagline", name: "tagline",
+                        render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data; }
+                    },
+                    {
+                        data: "description", name: "description", class: 'text-right',
+                        render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data; }
+                    },
+                    {
+                        data: "price", name: "price",
+                        render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data; }
+                    },
+                    {
+                        data: null, name: null, class: 'center',
+                        render: function (data, type, row, meta) {return `<button id=${data.id} class='deleteButton'>Buy me!</button>`;
+ }
+                    }
+                ]
+            })
+            .on('select', function (e, dt, type, indexes) {
+                var rowData = table.rows(indexes).data().toArray()
+                $('#row-data').html(JSON.stringify(rowData))
+            })
+            .on('deselect', function () {
+                $('#row-data').html('')
+            })
+
+        });
+    </script>
 </head>
 <body>
 <!--Navigation bar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
-        </li>
-        <li class="nav-item hidden-when-logged-in">
-          <a class="nav-link" href="login.html">Login</a>
-        </li>
-        <li class="nav-item hidden-when-logged-in">
-          <a class="nav-link" href="register.html">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shop.html">shop</a>
-        </li>
-        <li class="nav-item hidden-when-logged-out">
-          <a class="nav-link" href="productCreator.html">Create</a>
-        </li>
-        <li class="nav-item hidden-when-logged-out">
-          <a class="nav-link" href="productEditor.html">Edit</a>
-        </li>
-        </li>
-        <li class="nav-item hidden-when-logged-out">
-          <a class="nav-link" href="productManager.html">SpaceOverview</a>
-        </li>
-        <li class="nav-item hidden-when-logged-out">
-          <a class="nav-link" href="userManager.html">userOverview</a>
-        </li>
-        <li class="nav-item hidden-when-logged-out">
-          <a class="nav-link" href="userEditor.html">UserEdit</a>
-        </li>
-        <li class="logoutButton nav-item hidden-when-logged-out">
-          <button class="nav-link btn-dark" id="logout">Logout</button>
-        </li>
-      </ul>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
+                </li>
+                <li class="nav-item anonymous">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item anonymous">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                <li class="nav-item anonymous user admin">
+                    <a class="nav-link" href="shop.html">shop</a>
+                </li>
+                <li class="nav-item admin">
+                    <a class="nav-link admin" href="productCreator.html">Create</a>
+                </li>
+                <li class="nav-item admin">
+                    <a class="nav-link" href="productEditor.html">Edit</a>
+                </li>
+                <li class="nav-item user admin">
+                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
+                </li>
+                <li class="nav-item admin">
+                    <a class="nav-link" href="userManager.html">userOverview</a>
+                </li>
+                <li class="nav-item admin">
+                    <a class="nav-link" href="userEditor.html">UserEdit</a>
+                </li>
+                <li class="nav-item user admin">
+                    <a class="nav-link" id="logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 <!--end of Navigation bar-->
-
-
-<div class="countdown">
-  <iframe src="http://free.timeanddate.com/countdown/i868wi3l/n259/cf12/cm0/cu4/ct0/cs0/ca0/co1/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw576/szh243/tatShop%20is%20opening%20soon!/tac000/tptShop%20is%20open!!!/tpc000/iso2022-03-31T12:00:00" allowtransparency="true" frameborder="0" width="353" height="87"></iframe>
+<div class="container-fluid">
+    <div class="row m-3">
+        <h5>Product overview</h5>
+    </div>
+    <div class="row m-3">
+        <div class="col">
+            <table id="register" class="table table-sm table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Tagline</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Purchase</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
-
-
 <!--Footer-->
 <div id="Footer"></div>
 <!--end Footer-->
 <!-------------------------------------------Scripts------------------------------------------------------------>
 <!--Footer-->
 <script>
-  $(function(){
-    $("#Footer").load("Footer.html");
-  });
+    $(function(){
+        $("#Footer").load("Footer.html");
+    });
 </script>
 <!--end of Footer bar-->
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="7caed6d53d62b29227787649-|49" defer=""></script>
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
 </body>
