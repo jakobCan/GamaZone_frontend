@@ -1,4 +1,4 @@
-
+//fill list with products
 fetchProducts = function () {
     $.ajax({
             method: 'GET',
@@ -14,38 +14,56 @@ fetchProducts = function () {
         }
     });
 }
-
-// Product to be changed
-$.ajax ({
-    method: "GET",
-    url: 'http://localhost:8080/products/' + id,
-    dataType: 'json'
-}).done(function(data) {
-    document.getElementById('id').value = data.id
-    document.getElementById('name').value = data.name;
-    document.getElementById('price').value = data.price;
-    document.getElementById('category').value = data.category;
-    document.getElementById('description').value = data.description;
-    document.getElementById('tagline').value = data.tagline;
-    document.getElementById('picture').value = data.picture;
-});
-
-
-// Update product
-$(document).ready('.editButton').click(function(e){
+fetchProducts();
+$("#productDropdown").change(getProduct);
+//get product from list and insert into form
+function getProduct (e) {
     e.preventDefault();
+    const id = $("#productDropdown").val();
+    $.ajax({
+            method: 'GET',
+            url: 'http://localhost:8080/products/'+ id,
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    ).done(function (data) {
+        $('#id').val(data.id);
+        $('#name').val(data.name);
+        $('#price').val(data.price);
+        $('#category').val(data.category);
+        $('#description').html(data.description);
+        $('#tagline').val(data.tagline);
+        $('#picture').val(data.picture);
 
+    });
+}
+
+// Update product on submit
+$(document).ready('body').on( 'click', '.submit', function(e){
+    e.preventDefault();
+    const id = $("#productDropdown").val();
+    let product = {
+        "id": $("#id").val(),
+        "name": $("#name").val(),
+        "price": $("#price").val(),
+        "category": $('#category').val(),
+        "description": $("#description").val(),
+        "tagline": $("#tagline").val(),
+        "picture": $("#picture").val()
+    };
     $.ajax ({
         method: "PUT",
         url: "http://localhost:8080/products/" + id,
-        dataType: "json",
+        data: JSON.stringify(product),
         contentType: "application/json; charset=utf-8",
         xhrFields: {
             withCredentials: true,
         },
         success: function () {
-            window.location.href= '../html/productManager.html';
             alert("Success! The Product was updated");
+            window.location.href= '../html/productManager.html';
         },
         error: function () {
             console.log("Error during Product Update")
