@@ -1,6 +1,5 @@
 body{
     padding-top: 110px;
-
 }
 
 .navbar-brand {
@@ -15,12 +14,6 @@ body{
     width: 50px;
     height: 50px;
 }
-.hidden-when-logged-out {
-    opacity: 100%;
-}
-.hidden-when-logged-in {
-    opacity: 100%;
-}
 
 .countdown {
     margin-left: auto;
@@ -28,7 +21,7 @@ body{
     width: 20%;
 }
 .tinytext {
-    font-size: 7px;
+    font-size: 10px;
 }
 
 /*hide role-specific div html */

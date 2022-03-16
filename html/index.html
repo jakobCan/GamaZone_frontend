@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 <body>
 <!--Navigation bar-->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+<nav class="navbar navbar-toggleable-md fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
@@ -35,21 +36,25 @@
                 <li class="nav-item user">
                     <a class="nav-link" href="cart.html">Cart</a>
                 </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productCreator.html">Create</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productEditor.html">Edit</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="userManager.html">UserOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="userEditor.html">UserEdit</a>
-                </li>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="productManager.html">Overview</a></li>
+                        <li><a class="dropdown-item" href="productEditor.html">Edit</a></li>
+                        <li><a class="dropdown-item" href="productCreator.html">Create</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Users
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="userManager.html">Overview</a></li>
+                        <li><a class="dropdown-item" href="userEditor.html">Edit</a></li>
+                    </ul>
+                </div>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item user admin">
@@ -72,10 +77,9 @@
     </div>
 
     <div class="admin">
-        <h1>Welcome Admin to the final frontier!</h1>
+        <h1>Welcome Admin, time to make some money!</h1>
     </div>
     <br>
-<!--    <h1>Space, the final frontier!</h1><br>-->
     <h5> Ever feel like this planet is overcrowded? So do we...</h5>
     <h5> Ever feel sick of Covid, Omicron and so on? So do we...</h5>
     <h5> Ever feel like that it is just too small? So do we...</h5>
@@ -83,7 +87,7 @@
     <h5> No more! Today it all changes!</h5><br>
     <h5>Big balls, small balls, normal balls, tiny balls, wet balls, Dry balls, smooth balls,</h5>
     <h5>we have them all. Planets, Moons and Spaceships in every kind of size or fashion you like!</h5>
-    <h5> You ask what should i do with my own planet? ANYTHING! Your planet your rules/laws wishes and desires.</h5><br>
+    <h5> You ask what should I do with my own planet? ANYTHING! Your planet your rules/laws wishes and desires.</h5><br>
     <br>
     <h5> Pop into our shop and buy your very own private Planet, Moon or Spaceship.</h5>
     <h5> It will make you feel bigger, better, faster and stronger, they will all love you for it</h5>

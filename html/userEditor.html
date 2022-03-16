@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--Navigation bar-->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+<nav class="navbar navbar-toggleable-md fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
@@ -37,21 +37,25 @@
         <li class="nav-item user">
           <a class="nav-link" href="cart.html">Cart</a>
         </li>
-        <li class="nav-item admin">
-          <a class="nav-link" href="productCreator.html">Create</a>
-        </li>
-        <li class="nav-item admin">
-          <a class="nav-link" href="productEditor.html">Edit</a>
-        </li>
-        <li class="nav-item admin">
-          <a class="nav-link" href="productManager.html">SpaceOverview</a>
-        </li>
-        <li class="nav-item admin">
-          <a class="nav-link" href="userManager.html">UserOverview</a>
-        </li>
-        <li class="nav-item admin">
-          <a class="nav-link" href="userEditor.html">UserEdit</a>
-        </li>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="productManager.html">Overview</a></li>
+            <li><a class="dropdown-item" href="productEditor.html">Edit</a></li>
+            <li><a class="dropdown-item" href="productCreator.html">Create</a></li>
+          </ul>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Users
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="userManager.html">Overview</a></li>
+            <li><a class="dropdown-item" href="userEditor.html">Edit</a></li>
+          </ul>
+        </div>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item user admin">
@@ -64,65 +68,72 @@
 <!--end of Navigation bar-->
 
 <!-- Edit User -->
-<div class="container main-container admin">
-  <div class="row">
-    <h2 class="text-center mt-4">Edit User</h2>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Firstname</span>
-        <input id="user_edit_firstname" type="text" class="form-control">
+<div class="container admin">
+  <form>
+    <h2>User Editor</h2>
+    <div class="form-group row">
+      <label for="userDropdown" class="col-2 col-form-label">User</label>
+      <div class="col-8">
+        <select id="userDropdown"  class="form-select" aria-label="Default select example">
+          <option selected>Choose user</option>
+        </select>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Lastname</span>
-        <input id="user_edit_surname" type="text" class="form-control">
+    <div class="form-group row">
+      <label for="id" class="col-2 col-form-label">ID</label>
+      <div class="col-8">
+        <input id="id" name="id" type="text" class="form-control">
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Username</span>
-        <input id="user_edit_username" type="text" class="form-control">
+    <div class="form-group row">
+      <label for="username" class="col-2 col-form-label">Username</label>
+      <div class="col-8">
+        <input id="username" name="username" type="text" class="form-control">
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Email</span>
-        <input id="user_edit_email" type="text" class="form-control">
+    <div class="form-group row">
+      <label for="password" class="col-2 col-form-label">Password</label>
+      <div class="col-8">
+        <input id="password" name="password" type="text" class="form-control">
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Address</span>
-        <input id="user_edit_address" type="text" class="form-control">
+    <div class="form-group row">
+      <label for="role" class="col-2 col-form-label">Role</label>
+      <div class="col-8">
+        <input id="role" name="role" type="text" class="form-control">
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Roles</span>
-        <input id="user_edit_roles" type="text" class="form-control">
+    <div class="form-group row">
+      <label for="firstname" class="col-2 col-form-label">Firstname</label>
+      <div class="col-8">
+        <input name="firstname" id="firstname" class="form-control">
       </div>
     </div>
-    <div class="col-6 col-md-2">
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text">Id</span>
-        <input id="user_edit_id" type="text" class="form-control" disabled>
+    <div class="form-group row">
+      <label for="lastname" class="col-2 col-form-label">Lastname</label>
+      <div class="col-8">
+        <input id="lastname" name="lastname" type="text" class="form-control">
       </div>
     </div>
-    <div class="col-6 col-md-4">
-      <div class="row">
-        <div class="col-6">
-          <select id="user_active" class="form-select form-select-sm">
-            <option value="1">Active</option>
-            <option value="0">Not Active</option>
-          </select>
-        </div>
-        <div class="col-6">
-          <button id="save_user_edits" type="button" class="btn-edit-user btn btn-outline-info ms-3 ms-md-5">Save</button>
-        </div>
+    <div class="form-group row">
+      <label for="email" class="col-2 col-form-label">Email</label>
+      <div class="col-8">
+        <input id="email" name="email" type="text" class="form-control">
       </div>
     </div>
-  </div>
+    <div class="form-group row">
+      <label for="active" class="col-2 col-form-label">Active</label>
+      <div class="col-8">
+        <input id="active" name="active" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-2 col-4">
+        <br>
+        <button name="submit" type="submit" class="submit btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
 
 <!--Footer-->
@@ -138,5 +149,6 @@
 <!--end of Footer bar-->
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
+<script src="../js/userEditor.js"></script>
 </body>
 </html>
