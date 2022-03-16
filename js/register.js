@@ -9,7 +9,7 @@ $(document).ready(function() {
         const email = $("#inputEmail").val();
 
         if (username == '' || email == '' || password == '' || passwordb == '') {
-            alert("Please complete fields");
+            alert("Please complete all fields");
         } else if ((password.length) < 8) {
             alert("Password should be min. 8 character in length");
         } else if (!(password).match(passwordb)) {
@@ -17,7 +17,7 @@ $(document).ready(function() {
         } else {
             $.ajax ({
                 method: "POST",
-                url: "http://localhost:8080/user/register",
+                url: "http://localhost:8080/users/register",
                 cache: false,
                 data: JSON.stringify({
                     username: username,
