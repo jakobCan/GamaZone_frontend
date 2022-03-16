@@ -16,22 +16,15 @@ $(document).ready(function () {
             {"data": "tagline"},
             {
                 "data": 'picture',
-                "render": function (url, type, full) {
-                    return '<img height="50%" width="50%" src="../images/Planets/planet-1519089_1280.jpg"/>';
+                "render": function (data, type, full) {
+                    return `<img height="100%" width="100%" src=${data.picture}/>`;
                 }
             },
-
         ],
         "columnDefs": [
+
             {
                 "targets": 7,
-                "data": null,
-                "render": function (data, type, full) {
-                    return `<button id=${data.id} class='editButton'>Edit</button>`;
-                },
-            },
-            {
-                "targets": 8,
                 "data": null,
                 "render": function (data, type, full) {
                     return `<button id=${data.id} class='deleteButton'>Delete</button>`;
@@ -47,10 +40,11 @@ $(document).ready(function () {
         deleteProductById(id);
     } );
 
-    $(document).ready('body').on( 'click', '.editButton', function (ev) {
+/*    $(document).ready('body').on( 'click', '.editButton', function (ev) {
         const { id, ...data} = ev.target;
-        console.log(id)
-    } );
+        //const { picture} = ev.target;
+        //console.log(picture)
+    } );*/
 
     function deleteProductById(id) {
 
