@@ -1,35 +1,22 @@
 $(function() {
-    /*
-    send new SpaceObject to backend
-    * */
     $('#product').submit(function(e) {
         e.preventDefault();
-        /*
-        * generate correct file name for picture to be uploaded
-        * */
-
+        // generate correct file name for picture to be uploaded
         // get file from input
         let picture = $('#singleFileUploadInput').get(0).files[0];
         // get name for SpaceObject from input
         let nameInput = $('#name').val();
-
         // split file type extension from file name
         let fileType = picture.name
             .split(".")
             .pop();
-
         // combine name from input with file extension
         let fileName = nameInput
             .concat('.', fileType);
-
         // append file with correct file name and extension
         let formData = new FormData();
         formData.append('file', picture, fileName);
-
-        /*
-        send uploaded picture to backend
-        * */
-        var blabla = '';
+        // send uploaded picture to backend
         $.ajax({
             type: "POST",
             url: "http://localhost:8080/uploadFile",
@@ -41,41 +28,44 @@ $(function() {
             contentType: false,
             success: function (response) {
                 console.log(response);
-                blabla = JSON.stringify(response);
-                console.log(blabla);
+                updateProduct(response.filePath);
             },
             error: function (error) {
                 console.log(error);
             }
         });
-
-        let product = {
-            "name": $("#name").val(),
-            "price": $("#price").val(),
-            "category": $('#category').val(),
-            "description": $("#description").val(),
-            "tagline": $("#tagline").val(),
-            "picture": fileName
-        };
-        console.log(product)
-        $.ajax({
-            type: "POST",
-            url: 'http://localhost:8080/products/create',
-            xhrFields: {
-                withCredentials: true
-            },
-            contentType: "application/json",
-            data: JSON.stringify(product),
-            success: function (data) {
-                console.log(data);
-                alert("Congrats! " + product.name + "  was added to your database");
-                window.location.href= '../html/productCreator.html';
-            },
-            error: function (data) {
-                console.log("Error")
-                alert('Something went wrong?... Try again!');
-                window.location.href= '../html/productCreator.html';
-            },
-        })
     })
 })
+
+function updateProduct(imgURL){
+
+    let product = {
+        "name": $("#name").val(),
+        "price": $("#price").val(),
+        "category": $('#category').val(),
+        "description": $("#description").val(),
+        "tagline": $("#tagline").val(),
+        "picture": imgURL
+    };
+    console.log(product)
+
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:8080/products/create',
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: "application/json",
+        data: JSON.stringify(product),
+        success: function (data) {
+            console.log(data);
+            alert("Congrats! " + product.name + "  was added to your database");
+            window.location.href= '../html/productCreator.html';
+        },
+        error: function (data) {
+            console.log("Error")
+            alert('Something went wrong?... Try again!');
+            window.location.href= '../html/productCreator.html';
+        },
+    })
+}
