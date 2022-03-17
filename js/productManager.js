@@ -32,7 +32,13 @@ $(document).ready(function () {
         const { id, ...data} = ev.target;
         //console.log(data);
         //console.log(id)
-        deleteProductById(id);
+        let confirmAction = confirm("Are you sure want to delete the user" + id + "?");
+        if (confirmAction) {
+            deleteProductById(id);
+            alert("User " + id + " was deleted");
+        } else {
+            alert("Delete canceled");
+        }
     } );
 
     function deleteProductById(id) {

@@ -27,15 +27,24 @@ $(document).ready(function () {
 
 $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
     const { id, ...data} = ev.target;
-    $.ajax({
-        type: 'DELETE',
-        url: 'http://localhost:8080/users/' + id,
-        xhrFields: {
-            withCredentials: true
-        },
-    }).done(function () {
-        location.reload();
-        alert("Deleted user with id " + id)
-    });
+    let confirmAction = confirm("Are you sure want to delete the product" + id + "?");
+    if (confirmAction) {
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:8080/users/' + id,
+            xhrFields: {
+                withCredentials: true
+            },
+        }).done(function () {
+            location.reload();
+            alert("Deleted user with id " + id)
+        });
+        alert("Product " + id + " was deleted");
+    } else {
+        alert("Delete canceled");
+    }
+
+
+
 } );
 
