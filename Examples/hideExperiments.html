@@ -11,66 +11,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="../html/index.html">Home</a><!--removed: class="nav-link active" aria-current="page"-->
-                </li>
-                <li class="nav-item anonymous">
-                    <a class="nav-link" href="../html/login.html">Login</a>
-                </li>
-                <li class="nav-item anonymous">
-                    <a class="nav-link" href="../html/register.html">Register</a>
-                </li>
-                <li class="nav-item anonymous">
-                    <a class="nav-link" href="../html/shop.html">shop</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="../html/productCreator.html">Create</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="../html/productEditor.html">Edit</a>
-                </li>
-                </li>
-                <li class="nav-item user admin">
-                    <a class="nav-link" href="../html/productManager.html">SpaceOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="../html/userManager.html">userOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="../html/userEditor.html">UserEdit</a>
-                </li>
-                <li class="logoutButton nav-item user admin">
-                    <button class="nav-link btn-dark" id="logout">Logout</button>
-                </li>
-            </ul>
-        </div>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown link
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
     </div>
-</nav>
-
-<div class="anonymous">
-    <center><h1>Welcome Anonymous User!</h1></center>
-</div>
-
-<div class="user">
-    <center><h1>Welcome End-User!</h1></center>
-</div>
-
-<div class="admin">
-    <center><h1>Welcome Admin!</h1></center>
-</div>
-
-<div>
-    <center><h1>Work in progress</h1></center>
 </div>
 
 <!--Footer bar-->

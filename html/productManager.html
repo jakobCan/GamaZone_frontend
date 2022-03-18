@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
-    <script src="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/sc-1.4.3/sl-1.2.4/datatables.min.css" />
 </head>
 <body>
 <!--Navigation bar-->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+<nav class="navbar navbar-toggleable-md fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img id="navLogo" src="../images/LogoWhite.svg" alt="logo" class="center">
@@ -38,21 +37,25 @@
                 <li class="nav-item user">
                     <a class="nav-link" href="cart.html">Cart</a>
                 </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productCreator.html">Create</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productEditor.html">Edit</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="productManager.html">SpaceOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="userManager.html">UserOverview</a>
-                </li>
-                <li class="nav-item admin">
-                    <a class="nav-link" href="userEditor.html">UserEdit</a>
-                </li>
+                <div class="nav-item dropdown admin">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="productManager.html">Overview</a></li>
+                        <li><a class="dropdown-item" href="productEditor.html">Edit</a></li>
+                        <li><a class="dropdown-item" href="productCreator.html">Create</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown admin">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Users
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="userManager.html">Overview</a></li>
+                        <li><a class="dropdown-item" href="userEditor.html">Edit</a></li>
+                    </ul>
+                </div>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item user admin">
@@ -65,11 +68,11 @@
 <!--end of Navigation bar-->
 
 <main id="main">
-    <div class="main">
+    <div class="container-fluid">
         <h1>Manage Products</h1>
 
         <div>
-            <table class="table" id="dataTable">
+            <table class="table table-sm table-hover admin" cellspacing="0" style="width:100%" id="dataTable">
                 <thead>
                 <tr>
                     <td>Id</td>
@@ -105,6 +108,5 @@
 <script src="../js/bootstrap.bundle.js"></script>
 <script src="../js/standard.js"></script>
 <script src="../js/productManager.js"></script>
-<script src="../js/productEditor.js"></script>
 </body>
 </html>

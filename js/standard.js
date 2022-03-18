@@ -1,5 +1,4 @@
 getRole();
-
 function getRole(){
 var authority;
 
@@ -21,9 +20,12 @@ var authority;
         if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
         //if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
     })
-
 }
 
+$(".navbar .nav-link").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+});
 
 /*$( document ).ready(function() { // Important: wait for the document dom to be ready
 

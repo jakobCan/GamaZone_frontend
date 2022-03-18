@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     var table = $('#dataTable').DataTable({
         "ajax": {
@@ -14,15 +12,13 @@ $(document).ready(function () {
             {"data": "category"},
             {"data": "description"},
             {"data": "tagline"},
-            {
-                "data": 'picture',
+            {"data": 'picture',
                 "render": function (data, type, full) {
-                    return `<img height="100%" width="100%" src=${data.picture}/>`;
+                    return `<img height="100%" width="100%" src="../images/spaceObjects/planet1.jpg"/>`;//${data.picture}
                 }
             },
         ],
         "columnDefs": [
-
             {
                 "targets": 7,
                 "data": null,
@@ -32,26 +28,29 @@ $(document).ready(function () {
             }]
     });
 
-
     $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
         const { id, ...data} = ev.target;
         //console.log(data);
         //console.log(id)
-        deleteProductById(id);
+        let confirmAction = confirm("Are you sure want to delete the user" + id + "?");
+        if (confirmAction) {
+            deleteProductById(id);
+            alert("User " + id + " was deleted");
+        } else {
+            alert("Delete canceled");
+        }
     } );
-
-/*    $(document).ready('body').on( 'click', '.editButton', function (ev) {
-        const { id, ...data} = ev.target;
-        //const { picture} = ev.target;
-        //console.log(picture)
-    } );*/
 
     function deleteProductById(id) {
 
         $.ajax({
             type: "DELETE",
+
             url: "http://localhost:8080/products/" + id,
             dataType: "json",
+            xhrFields: {
+                withCredentials: true
+            },
             statusCode: {
                 200: function() {
                     //console.log("product deleted with " + id)
