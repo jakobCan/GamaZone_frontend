@@ -1,4 +1,3 @@
-var colors = ["Crimson ", "Cyan ", "DarkBlue ", "DarkCyan ", "DarkGoldenRod ", "DarkGray ", "DarkGrey ", "DarkGreen ", "DarkKhaki ", "DarkMagenta ", "DarkOliveGreen ", "DarkOrange "];
 
 $(document).ready(function () {
 
@@ -7,7 +6,7 @@ $(document).ready(function () {
         pageLength: -1,
         buttons: [
             {
-                text: '<i class="fa fa-id-badge fa-fw fa-lg" aria-hidden="true"></i>',
+                text: '<i class="fa fa-id-badge fa-fw fa-lg" aria-hidden="true"></i> Switch List/Cards',
                 className: 'animated bounce',
                 action: function () {
 
@@ -41,19 +40,16 @@ $(document).ready(function () {
             "dataSrc": ""
         },
         columns: [
-            {   /* created column to show a picture just to make this demo look better */
-                orderable: false, data: 'Photo', name: 'Photo', orderable: false, defaultContent: '', title: 'Photo',
-                visible: true, className: 'text-center', width: '20px',
-
-                createdCell: function (td, cellData, rowData, row, col) {
-                    var $ctl = $('<i class="fa fa-user fa-fw"></i>').css('color', colors[Math.round(Math.random() * colors.length) + 1])
-                    $(td).append($ctl);
+            {
+                "data": 'picture',
+                "render": function (data, type, row, meta) {
+                    return '<img height="100%" width="100%" src="../images/spaceObjects/planet1.jpg"/>';
                 }
             },
             /* I added a label to the column for the field name which will show up in the card display */
             {
                 data: "name", name: "name",
-                render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + (function(data, type, row) { return data +', '+ row.office })(data, type, row, meta); }
+                render: function (data, type, row, meta) { return (type === 'display' ? '<label>'+ $($('#register').DataTable().column(meta.col).header()).html() +':</label>' : null ) + data;}
             },
             {
                 data: "category", name: "category", class: 'text-left',
@@ -73,7 +69,7 @@ $(document).ready(function () {
             },
             {
                 data: null, name: null, class: 'center',
-                render: function (data, type, row, meta) {return `<button id=${data.id} class='deleteButton'>Buy me!</button>`;
+                render: function (data, type, row, meta) {return `<button id=${data.name} class='buyButton'>Buy me!</button>`;
                 }
             }
         ]
@@ -85,5 +81,28 @@ $(document).ready(function () {
         .on('deselect', function () {
             $('#row-data').html('')
         })
-
 });
+
+$(document).ready('body').on( 'click', '.buyButton', function (ev) {
+    const { id, ...data} = ev.target;
+    //console.log(id);
+    let confirmAction = confirm("You want to add " + id + " to the cart?");
+    if (confirmAction) {
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost:8080/cart/add/' + id + '/' + 1,
+            xhrFields: {withCredentials: true},
+            success: function (data) {
+                alert("Congrats! " + id + "  was added to your cart");
+                //window.location.href= '../html/cart.html';
+            },
+            error: function (data) {
+                console.log("Error")
+                alert('Something went wrong?... Try again!');
+                //window.location.href= '../html/shop.html';
+            },
+        })
+    } else {
+        alert("Add to cart canceled");
+    }
+} );
