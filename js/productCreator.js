@@ -28,7 +28,7 @@ $(function() {
             contentType: false,
             success: function (response) {
                 console.log(response);
-                updateProduct(response.filePath);
+                saveDownloadUri(response.fileDownloadUri);
             },
             error: function (error) {
                 console.log(error);
@@ -37,7 +37,7 @@ $(function() {
     })
 })
 
-function updateProduct(imgURL){
+function saveDownloadUri(downloadPath){
 
     let product = {
         "name": $("#name").val(),
@@ -45,7 +45,7 @@ function updateProduct(imgURL){
         "category": $('#category').val(),
         "description": $("#description").val(),
         "tagline": $("#tagline").val(),
-        "picture": imgURL
+        "picture": downloadPath
     };
     console.log(product)
 
