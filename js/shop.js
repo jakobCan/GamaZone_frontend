@@ -41,9 +41,9 @@ $(document).ready(function () {
         },
         columns: [
             {
-                "data": 'picture',
-                "render": function (data, type, row, meta) {
-                    return '<img height="100%" width="100%" src="../images/spaceObjects/planet1.jpg"/>';
+                data: 'picture',
+                render: function (data, type, row, meta) {
+                    return `<img height="100%" width="100%" src=${data.picture}>`;
                 }
             },
             /* I added a label to the column for the field name which will show up in the card display */
