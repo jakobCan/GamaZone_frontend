@@ -3,6 +3,9 @@ $(document).ready(function () {
         "ajax": {
             "url": "http://localhost:8080/cart/items",
             "type": "GET",
+            xhrFields: {
+                withCredentials: true
+            },
             "dataSrc": ""
         },
         "columns": [
