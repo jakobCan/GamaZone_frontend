@@ -27,6 +27,29 @@ $(".navbar .nav-link").on("click", function(){
     $(this).addClass("active");
 });
 
+function redirectRoleAdmin(){
+    let authority;
+
+    $.ajax({
+        type: "GET",
+        //cookie
+        xhrFields: {
+            withCredentials: true
+        },
+        url: 'http://localhost:8080/users/roles',
+        contentType: "application/json",
+    }).done(function(data){
+        //console.log(data);
+        authority = data[0].authority;
+        //console.log("authority working", authority)
+        //console.log("out",authority)
+        //if (authority === "ROLE_USER"){$(".user").show(); }
+        if (authority === "ROLE_ADMIN"){location.href = "/index.html"}
+        //if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
+        //if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
+    })
+}
+
 /*$( document ).ready(function() { // Important: wait for the document dom to be ready
 
     // get the value of the server access variable - simulated by the radio buttons in this case

@@ -11,12 +11,11 @@ $(document).ready(function () {
             { "data": "email" },
             { "data": "firstName" },
             { "data": "lastName" },
-            { "data": "password" },
             { "data": 'role',
             },
         ],
         "columnDefs": [ {
-            "targets": 7,
+            "targets": 6,
             "data": null,
             "render": function (data, type, full) {
                 return `<button id=${data.userId} class='deleteButton'>Delete</button>`;

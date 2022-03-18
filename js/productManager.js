@@ -14,7 +14,7 @@ $(document).ready(function () {
             {"data": "tagline"},
             {"data": 'picture',
                 "render": function (data, type, full) {
-                    return '<img height="100%" width="100%" src="' + data + '">';
+                    return `<img height="100%" width="100%" src="../images/spaceObjects/planet1.jpg"/>`;//${data.picture}
                 }
             },
         ],
@@ -30,6 +30,8 @@ $(document).ready(function () {
 
     $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
         const { id, ...data} = ev.target;
+        //console.log(data);
+        //console.log(id)
         let confirmAction = confirm("Are you sure want to delete the user" + id + "?");
         if (confirmAction) {
             deleteProductById(id);
@@ -43,7 +45,6 @@ $(document).ready(function () {
 
         $.ajax({
             type: "DELETE",
-
             url: "http://localhost:8080/products/" + id,
             dataType: "json",
             xhrFields: {
@@ -51,6 +52,7 @@ $(document).ready(function () {
             },
             statusCode: {
                 200: function() {
+                    //console.log("product deleted with " + id)
                     alert("product deleted with id=" + id)
                     location.reload()
                 },

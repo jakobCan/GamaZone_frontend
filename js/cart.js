@@ -3,6 +3,9 @@ $(document).ready(function () {
         "ajax": {
             "url": "http://localhost:8080/cart/items",
             "type": "GET",
+            xhrFields: {
+                withCredentials: true
+            },
             "dataSrc": ""
         },
         "columns": [
@@ -43,18 +46,18 @@ $(document).ready(function () {
     } );
 
     function deleteCartItemById(id) {
+        console.log(id)
 
         $.ajax({
             type: "DELETE",
-
-            url: "http://localhost:8080/delete/" + id,
+            url: "http://localhost:8080/cart/delete/" + id,
             dataType: "json",
             xhrFields: {
                 withCredentials: true
             },
             statusCode: {
                 200: function() {
-                    //console.log("product deleted with " + id)
+                    console.log("product deleted with " + id)
                     alert("product deleted with id=" + id)
                     location.reload()
                 },
@@ -66,14 +69,3 @@ $(document).ready(function () {
     }
 
 });
-
-
-/* let productdata = {
-     "id": $("#id").val(),
-     "name": $("#name").val(),
-     "price": $("#price").val(),
-     "category": $('#category').val(),
-     "description": $("#description").val(),
-     "tagline": $("#tagline").val(),
-     "picture": $("#photoURL").val()
- };*/
