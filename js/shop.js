@@ -41,9 +41,9 @@ $(document).ready(function () {
         },
         columns: [
             {
-                "data": null,
-                "render": function (data, type, row, meta) {
-                    return `<img height="100%" width="100%" src=${data.picture}>`;
+                data: 'picture',
+                render: function (data, type, row, meta) {
+                    return '<img height="100%" width="100%" src="' + data + '">';
                 }
             },
             /* I added a label to the column for the field name which will show up in the card display */
@@ -77,7 +77,6 @@ $(document).ready(function () {
         .on('select', function (e, dt, type, indexes) {
             var rowData = table.rows(indexes).data().toArray()
             $('#row-data').html(JSON.stringify(rowData))
-            console.log(data.picture)
         })
         .on('deselect', function () {
             $('#row-data').html('')
