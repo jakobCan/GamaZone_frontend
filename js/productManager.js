@@ -45,7 +45,6 @@ $(document).ready(function () {
 
         $.ajax({
             type: "DELETE",
-
             url: "http://localhost:8080/products/" + id,
             dataType: "json",
             xhrFields: {
@@ -65,14 +64,3 @@ $(document).ready(function () {
     }
 
 });
-
-
-/* let productdata = {
-     "id": $("#id").val(),
-     "name": $("#name").val(),
-     "price": $("#price").val(),
-     "category": $('#category').val(),
-     "description": $("#description").val(),
-     "tagline": $("#tagline").val(),
-     "picture": $("#photoURL").val()
- };*/
