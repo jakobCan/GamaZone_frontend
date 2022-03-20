@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
     const { id, ...data} = ev.target;
-    let confirmAction = confirm("Are you sure want to delete the product" + id + "?");
+    let confirmAction = confirm("Sure you want to delete user-" + id + "?");
     if (confirmAction) {
         $.ajax({
             type: 'DELETE',
@@ -38,7 +38,7 @@ $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
             location.reload();
             alert("Deleted user with id " + id)
         });
-        alert("Product " + id + " was deleted");
+        //alert("Product " + id + " was deleted");
     } else {
         alert("Delete canceled");
     }

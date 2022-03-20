@@ -63,7 +63,7 @@ $(document).ready('body').on( 'click', '.submit', function(e){
         },
         success: function () {
             alert("Success! The Product was updated");
-            window.location.href= '../html/productManager.html';
+            //window.location.href= '../html/productManager.html';
         },
         error: function () {
             console.log("Error during Product Update")
