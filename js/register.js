@@ -36,16 +36,11 @@ $(document).ready(function() {
                     console.log(response);
                     alert('You have registered! Congrats!!! you can now login!!!!!!!');
                     window.location.href= '../html/login.html';
-                    //$('#result').html("../html/login.html");
-                    //var obj = JSON.parse(response);
-                    //$('#result').html("username:- " + obj.username +"</br>\"First Name:- \" + obj.firstName +\"</br>Last Name:- " + obj.lastName  + "</br>Email:- " + obj.email);
-
-                    window.location.href= '../html/login.html';
                 },
                 error: function () {
                     console.log("Error")
-                    alert('Error while request..');
-                    window.location.href= '../html/register.html';
+                    alert('Error while request.. did you fill out all the fields correctly? Please try again');
+                    //window.location.href= '../html/register.html';
                 },
             });
         }

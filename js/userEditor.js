@@ -70,7 +70,7 @@ $(document).ready('body').on( 'click', '.submit', function(e){
             window.location.href= '../html/userManager.html';
         },
         error: function () {
-            console.log("Error during user Update")
+            console.log("Error during user update, try again")
         },
     });
 });
