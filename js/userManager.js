@@ -43,7 +43,5 @@ $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
         alert("Delete canceled");
     }
 
-
-
 } );
 
