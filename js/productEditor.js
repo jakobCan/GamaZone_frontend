@@ -35,7 +35,6 @@ function getProduct (e) {
         $('#category').val(data.category);
         $('#description').html(data.description);
         $('#tagline').val(data.tagline);
-        $('#picture').val(data.picture);
 
     });
 }
@@ -43,16 +42,81 @@ function getProduct (e) {
 // Update product on submit
 $(document).ready('body').on( 'click', '.submit', function(e){
     e.preventDefault();
-    const id = $("#productDropdown").val();
+
+    let picture = $('#singleFileUploadInput').get(0).files[0];
+    if (typeof picture !== 'undefined'){
+
+        let nameInput = $('#name').val();
+        let fileType = picture.name
+            .split(".")
+            .pop();
+        let fileName = nameInput
+            .concat('.', fileType);
+        let formData = new FormData();
+        formData.append('file', picture, fileName);
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/uploadFile",
+            xhrFields: {
+                withCredentials: true
+            },
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log(response);
+                saveDownloadUri(response.fileDownloadUri);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    } else {
+        let product = {
+            "name": $("#name").val(),
+            "price": $("#price").val(),
+            "category": $('#category').val(),
+            "description": $("#description").val(),
+            "tagline": $("#tagline").val(),
+            "picture": null
+        };
+
+        const id = $("#productDropdown").val();
+
+        $.ajax ({
+            method: "PUT",
+            url: "http://localhost:8080/products/" + id,
+            data: JSON.stringify(product),
+            contentType: "application/json; charset=utf-8",
+            xhrFields: {
+                withCredentials: true,
+            },
+            success: function (data) {
+                alert("Success! The Product was updated");
+                console.log(data)
+                //window.location.href= '../html/productManager.html';
+            },
+            error: function () {
+                console.log("Error during Product Update")
+            },
+        });
+    }
+});
+
+function saveDownloadUri(downloadPath){
+
     let product = {
-        "id": $("#id").val(),
         "name": $("#name").val(),
         "price": $("#price").val(),
         "category": $('#category').val(),
         "description": $("#description").val(),
         "tagline": $("#tagline").val(),
-        "picture": $("#picture").val()
+        "picture": downloadPath
     };
+
+    const id = $("#productDropdown").val();
+
     $.ajax ({
         method: "PUT",
         url: "http://localhost:8080/products/" + id,
@@ -69,4 +133,4 @@ $(document).ready('body').on( 'click', '.submit', function(e){
             console.log("Error during Product Update")
         },
     });
-});
+}
