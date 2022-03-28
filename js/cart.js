@@ -11,7 +11,7 @@ $(document).ready(function () {
         "columns": [
             {"data": 'spaceObject.picture',
                 "render": function (data, type, full) {
-                    return '<img height="100%" width="100%" src="' + data + '">';
+                    return '<img height="100%" width="100%" src="' + data + '" alt="Image of SpaceObject">';
                 }
             },
             {"data": "spaceObject.id"},

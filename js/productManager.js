@@ -12,10 +12,9 @@ $(document).ready(function () {
             {"data": "category"},
             {"data": "description"},
             {"data": "tagline"},
-            {"data": 'picture',
+            {"data": null,
                 "render": function (data, type, full) {
-                    return '<img height="100%" width="100%" src="' + data + '" alt="'+data+'">';
-                }
+                    return `<img height="100%" width="100%" src=${data.picture} alt="Image of ${data.name}">`;                }
             },
         ],
         "columnDefs": [
