@@ -39,11 +39,13 @@ $(document).ready(function () {
             "type": "GET",
             "dataSrc": ""
         },
+
         columns: [
             {
-                data: 'picture',
+                data: null, name: "picture",
                 render: function (data, type, row, meta) {
-                    return '<img height="100%" width="100%" src="' + data + '" alt="'+data+'">';
+                    //console.log(data)
+                    return `<img height="100%" width="100%" src=${data.picture} alt="Image of ${data.name}">`;
                 }
             },
             /* I added a label to the column for the field name which will show up in the card display */
