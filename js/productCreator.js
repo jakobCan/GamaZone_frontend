@@ -27,7 +27,7 @@ $(function() {
             processData: false,
             contentType: false,
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 saveDownloadUri(response.fileDownloadUri);
             },
             error: function (error) {
@@ -58,14 +58,14 @@ function saveDownloadUri(downloadPath){
         contentType: "application/json",
         data: JSON.stringify(product),
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             alert("Congrats! " + product.name + "  was added to your database");
             window.location.href= '../html/productCreator.html';
         },
         error: function (data) {
-            console.log("Error")
+            //console.log("Error")
             alert('Something went wrong?... Try again!');
-            window.location.href= '../html/productCreator.html';
+            //window.location.href= '../html/productCreator.html';
         },
     })
 }

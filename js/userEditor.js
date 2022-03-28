@@ -17,6 +17,7 @@ fetchUsers = function () {
 }
 fetchUsers();
 $("#userDropdown").change(getUser);
+let password;
 
 //get user from list and insert into form
 function getUser (e) {
@@ -31,9 +32,10 @@ function getUser (e) {
             }
         }
     ).done(function (data) {
-        $('#id').val(data.userId);
+        //$('#id').val(data.userId);
         $('#username').val(data.username);
-        $('#password').val(data.password);
+        password = data.password;
+        //$('#password').val(data.password);
         $('#role').val(data.role);
         $('#firstname').val(data.firstName);
         $('#lastname').val(data.lastName);
@@ -48,9 +50,10 @@ $(document).ready('body').on( 'click', '.submit', function(e){
     e.preventDefault();
     const id = $("#userDropdown").val();
     let user = {
-        "userId": $("#id").val(),
+        //"userId": $("#id").val(),
         "username": $("#username").val(),
-        "password": $("#password").val(),
+        "password": password,
+        //"password": $("#password").val(),
         "role": $('#role').val(),
         "firstName": $("#firstname").val(),
         "lastName": $("#lastname").val(),

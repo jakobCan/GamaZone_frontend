@@ -36,11 +36,11 @@ $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
             },
         }).done(function () {
             location.reload();
-            alert("Deleted user with id " + id)
+            //alert("Deleted user with id " + id)
         });
         //alert("Product " + id + " was deleted");
     } else {
-        alert("Delete canceled");
+        //alert("Delete canceled");
     }
 
 } );

@@ -27,7 +27,7 @@ $('#login').click(function(e){
             window.location.href= '../html/index.html';
         },
         error: function (data) {
-            console.log("Error")
+            //console.log("Error")
             alert('Perhaps you got the wrong password... Please try again!');
             window.location.href= '../html/login.html';
         },

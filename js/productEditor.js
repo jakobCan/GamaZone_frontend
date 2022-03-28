@@ -65,7 +65,7 @@ $(document).ready('body').on( 'click', '.submit', function(e){
             processData: false,
             contentType: false,
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 saveDownloadUri(response.fileDownloadUri);
             },
             error: function (error) {
@@ -94,11 +94,11 @@ $(document).ready('body').on( 'click', '.submit', function(e){
             },
             success: function (data) {
                 alert("Success! The Product was updated");
-                console.log(data)
+                //console.log(data)
                 //window.location.href= '../html/productManager.html';
             },
             error: function () {
-                console.log("Error during Product Update")
+                console.log("Error during Product Update, please fill in all fields")
             },
         });
     }
