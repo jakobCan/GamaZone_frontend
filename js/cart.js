@@ -39,9 +39,9 @@ $(document).ready(function () {
         let confirmAction = confirm("Are you sure want to remove this from your cart?");
         if (confirmAction) {
             deleteCartItemById(id);
-            alert("Cart item was removed");
+            //alert("Cart item was removed");
         } else {
-            alert("Removal of cart item canceled");
+            //alert("Removal of cart item canceled");
         }
     } );
 
@@ -60,7 +60,8 @@ $(document).ready(function () {
                     //alert("product deleted with id=" + id)
                     location.reload()
                 },
-                500: function () {console.log("product not deleted")
+                500: function () {
+                    //console.log("product not deleted")
                 }
             }
         })

@@ -43,7 +43,7 @@ $(document).ready(function () {
             {
                 data: 'picture',
                 render: function (data, type, row, meta) {
-                    return '<img height="100%" width="100%" src="' + data + '">';
+                    return '<img height="100%" width="100%" src="' + data + '" alt="'+data+'">';
                 }
             },
             /* I added a label to the column for the field name which will show up in the card display */
@@ -93,16 +93,16 @@ $(document).ready('body').on( 'click', '.buyButton', function (ev) {
             url: 'http://localhost:8080/cart/add/' + id + '/' + 1,
             xhrFields: {withCredentials: true},
             success: function (data) {
-                alert("Congrats! " + id + "  was added to your cart");
-                //window.location.href= '../html/cart.html';
+                //alert("Congrats! " + id + "  was added to your cart");
+                window.location.href= '../html/cart.html';
             },
             error: function (data) {
-                console.log("Error")
-                alert('Something went wrong?... Try again!');
+                console.log("Error, only logged in users can add cart items")
+                //alert('Something went wrong?... Try again!');
                 //window.location.href= '../html/shop.html';
             },
         })
     } else {
-        alert("Add to cart canceled");
+        //alert("Add to cart canceled");
     }
 } );

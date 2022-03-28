@@ -34,11 +34,10 @@ $('#logout').click(function(e) {
         },
         url: 'http://localhost:8080/logout',
         contentType: "application/json",
-        //data: JSON.stringify(product),
         statusCode: {
             200: function() {
                 sessionStorage.clear()
-                console.log("Logged out")
+                //console.log("Logged out")
                 window.location.href= '../html/login.html'
                 alert('Logout successful, goodbye');
             }
@@ -47,25 +46,3 @@ $('#logout').click(function(e) {
 
 });
 
-/*function redirectRoleAdmin(){
-    let authority;
-
-    $.ajax({
-        type: "GET",
-        //cookie
-        xhrFields: {
-            withCredentials: true
-        },
-        url: 'http://localhost:8080/users/roles',
-        contentType: "application/json",
-    }).done(function(data){
-        //console.log(data);
-        authority = data[0].authority;
-        //console.log("authority working", authority)
-        //console.log("out",authority)
-        //if (authority === "ROLE_USER"){$(".user").show(); }
-        if (authority === "ROLE_ADMIN"){location.href = "/index.html"}
-        //if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
-        //if (authority === "ROLE_ANONYMOUS"){$(".anonymous").show(); }
-    })
-}*/

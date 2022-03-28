@@ -15,11 +15,6 @@ body{
     height: 50px;
 }
 
-.countdown {
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-}
 .tinytext {
     font-size: 10px;
 }
@@ -30,7 +25,7 @@ body{
 }
 
 /* Footer CSS to have it at bottom incl. trick */
-body{ min-height:100vh; margin:0; position:relative; }
+body{ min-height:100vh; margin:0; position:relative;  }
 /* Trick: */
 body {
     position: relative;
