@@ -38,9 +38,7 @@ $(document).ready(function() {
                     window.location.href= '../html/login.html';
                 },
                 error: function () {
-                    console.log("Error")
                     alert('Error while request.. did you fill out all the fields correctly? Please try again');
-                    //window.location.href= '../html/register.html';
                 },
             });
         }
