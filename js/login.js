@@ -29,7 +29,7 @@ $('#login').click(function(e){
         error: function (data) {
             //console.log("Error")
             alert('Perhaps you got the wrong password... Please try again!');
-            window.location.href= '../html/login.html';
+            //window.location.href= '../html/login.html';
         },
     });
 });
