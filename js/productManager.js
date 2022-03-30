@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     $(document).ready('body').on( 'click', '.deleteButton', function (ev) {
         const { id, ...data} = ev.target;
-        let confirmAction = confirm("Are you sure want to delete the user" + id + "?");
+        let confirmAction = confirm("Are you sure want to delete the product " + id + "?");
         if (confirmAction) {
             deleteProductById(id);
             //alert("User " + id + " was deleted");
@@ -53,7 +53,7 @@ $(document).ready(function () {
                     location.reload()
                 },
                 500: function () {
-                    console.log("product not deleted")
+                    //console.log("product not deleted")
                 }
             }
         })
